@@ -10,12 +10,7 @@ ifeq ($(OS), Linux)
 endif
 
 
-all: youcompleteme ctags
-
-youcompleteme:
-	# Ensure YouCompleteMe is installed
-	vim -c PlugInstall -c qa
-	cd home/.vim/plugged/YouCompleteMe/ && ./install.py --tern-completer
+all: ctags python-language-server
 
 ctags:
 ifeq ($(IS_MACOS), 1)
@@ -24,3 +19,11 @@ ifeq ($(IS_MACOS), 1)
 	# GNU Global
 	brew install global
 endif
+
+PIP := $(shell command -v pip3 2>/dev/null)
+ifndef PIP
+	PIP = $(shell command -v pip 2>/dev/null)
+endif
+python-language-server:
+	$(PIP) install --user python-language-server==0.11.1
+
