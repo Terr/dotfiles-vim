@@ -169,6 +169,7 @@ autocmd FileType python :set omnifunc=python3complete#Complete
 let g:LanguageClient_serverCommands = {
             \ 'python': ['pyls'], 
             \ 'php': ['php-language-server'],
+            \ 'javascript': ['javascript-typescript-stdio'],
 \ }
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>

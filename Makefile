@@ -10,7 +10,7 @@ ifeq ($(OS), Linux)
 endif
 
 
-all: ctags python-language-server
+all: ctags python-language-server javascript-typescript-language-server
 
 ctags:
 ifeq ($(IS_MACOS), 1)
@@ -20,6 +20,7 @@ ifeq ($(IS_MACOS), 1)
 	brew install global
 endif
 
+# Use pip3 instead of pip, if present
 PIP := $(shell command -v pip3 2>/dev/null)
 ifndef PIP
 	PIP = $(shell command -v pip 2>/dev/null)
@@ -27,3 +28,5 @@ endif
 python-language-server:
 	$(PIP) install --user python-language-server==0.11.1
 
+javascript-typescript-language-server:
+	yarn global add javascript-typescript-langserver 
