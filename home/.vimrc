@@ -38,6 +38,8 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'fatih/vim-go'
 """ Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug', { 'branch': 'python3' }
+"" Rust file detection, syntax highlighting, etc.
+Plug 'rust-lang/rust.vim'
 "" PHP syntax highlighting
 Plug 'StanAngeloff/php.vim'
 "" TypeScript syntax highlighting
