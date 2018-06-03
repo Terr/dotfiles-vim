@@ -26,6 +26,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 "" Git wrapper
 Plug 'tpope/vim-fugitive'
+"" Asynchronous build and test dispatcher
+Plug 'tpope/vim-dispatch'
 "" Line/block comments
 Plug 'scrooloose/nerdcommenter'
 "" Asynchronous linting
@@ -202,6 +204,10 @@ let g:go_template_autocreate = 0
 "" ALE
 let g:ale_php_phpmd_ruleset = ''
 let g:ale_lint_delay = 1000
+
+" vim-dispatch
+nnoremap <F9> :Dispatch<CR>
+nnoremap <C-F9> :Make!<CR>
 
 "" vimwiki
 nmap <Leader>vw <Plug>VimwikiIndex
