@@ -207,8 +207,7 @@ let g:ale_php_phpmd_ruleset = ''
 let g:ale_lint_delay = 1000
 
 " vim-dispatch
-nnoremap <F9> :Dispatch<CR>
-nnoremap <C-F9> :Make!<CR>
+let g:nremap = {"`": "["}
 
 "" vimwiki
 nmap <Leader>vw <Plug>VimwikiIndex
