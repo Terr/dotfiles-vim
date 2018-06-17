@@ -15,7 +15,10 @@ all: youcompleteme ctags
 youcompleteme:
 	# Ensure YouCompleteMe is installed
 	vim -c PlugInstall -c qa
-	cd home/.vim/plugged/YouCompleteMe/ && ./install.py --tern-completer
+	cd home/.vim/plugged/YouCompleteMe/ && \
+		./install.py \
+			--tern-completer \
+			--rust-completer
 
 ctags:
 ifeq ($(IS_MACOS), 1)
