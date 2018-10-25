@@ -213,3 +213,6 @@ nmap <Leader>v<Leader>m <Plug>VimwikiMakeTomorrowDiaryNote
 nmap <Leader>v<Leader>i <Plug>VimwikiDiaryGenerateLinks
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+"" nerdcommenter
+nmap  <Plug>NERDCommenterToggle<CR>
