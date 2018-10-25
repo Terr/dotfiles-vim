@@ -129,7 +129,7 @@ let g:netrw_sort_options = "i"
 let mapleader = ','
 
 " Shortcut to (force) save buffer
-nmap <Leader>w :w!<CR>
+nmap \ :w!<CR>
 
 " Clear search highlights
 noremap <silent><Leader>/ :nohls<CR>
