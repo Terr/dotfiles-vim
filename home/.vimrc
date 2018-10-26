@@ -225,3 +225,4 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 
 "" nerdcommenter
 nmap  <Plug>NERDCommenterToggle<CR>
+vmap  <Plug>NERDCommenterToggle<CR>
