@@ -32,14 +32,18 @@ Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdcommenter'
 "" Asynchronous linting
 Plug 'w0rp/ale'
+"" Snippets
+Plug 'SirVer/ultisnips'
 "" Vimwiki
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 "" Better Python indentation
 Plug 'Vimjas/vim-python-pep8-indent'
 "" Go development plugin
 Plug 'fatih/vim-go'
-""" Visual debugger for multiple langauges
+"" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug', { 'branch': 'python3' }
+"" Supertab
+Plug 'ervandew/supertab'
 "" Rust file detection, syntax highlighting, etc.
 Plug 'rust-lang/rust.vim'
 "" PHP syntax highlighting
@@ -171,6 +175,10 @@ nnoremap <Leader>d :YcmCompleter GoToDefinition<CR>
 nnoremap <Leader>g :YcmCompleter GetDoc<CR>
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
 let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
+""" Make YCM compatible with UltiSnips (using SuperTab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 "" fzf
 nnoremap ` :FZF<CR>
@@ -248,3 +256,9 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 "" nerdcommenter
 nmap  <Plug>NERDCommenterToggle<CR>
 vmap  <Plug>NERDCommenterToggle<CR>
+
+"" UltiSnips
+let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
