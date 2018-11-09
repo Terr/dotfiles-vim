@@ -1,0 +1,45 @@
+snippet extern "extern crate"
+extern crate ${1:mod};
+endsnippet
+
+# Display trait
+snippet "impl Display" "Implement Display trait"
+impl fmt::Display for ${1:Type} {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        ${2:write!(f, "{}", $3)}
+    }
+}
+endsnippet
+
+# From trait
+snippet "impl From" "Implement From trait"
+impl From<$1> for ${2:Type} {
+    fn from(${3:value}: $1) -> Self {
+        ${4}
+    }
+}
+endsnippet
+
+# Iterator trait
+snippet "impl Iterator" "Implement Iterator trait"
+impl Iterator for ${1:Type} {
+    type Item = ${2:Type};
+
+    fn next(&mut self) -> Option<$2> {
+        ${3}
+    }
+}
+endsnippet
+
+# tests mod block
+snippet tests "Create tests mod block"
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn ${1:test}() {
+        ${2}
+    }
+}
+endsnippet
