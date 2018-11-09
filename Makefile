@@ -18,7 +18,7 @@ youcompleteme:
 	cd home/.vim/plugged/YouCompleteMe/ && \
 		./install.py \
 			--tern-completer \
-			--rust-completer
+			--racer-completer
 
 ctags:
 ifeq ($(IS_MACOS), 1)
