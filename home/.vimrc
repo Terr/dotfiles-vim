@@ -106,6 +106,7 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set grepprg=rg\ --vimgrep
 
 " Wild file selection menu
 set wildmode=list:longest
