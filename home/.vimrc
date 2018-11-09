@@ -98,6 +98,8 @@ set noswapfile
 
 " Buffer settings
 set hidden  " Allow switching to other buffers from an unsaved one
+set splitbelow
+set splitright
 
 " Search settings
 set incsearch
