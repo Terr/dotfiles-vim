@@ -168,6 +168,7 @@ autocmd FileType c,cpp,java,php,python,javascript,html,ruby autocmd BufWritePre 
 " Plugin related settings
 "" YouCompleteMe
 nnoremap <Leader>d :YcmCompleter GoToDefinition<CR>
+nnoremap <Leader>g :YcmCompleter GetDoc<CR>
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
 let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
