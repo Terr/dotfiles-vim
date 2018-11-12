@@ -174,7 +174,7 @@ let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/
 
 "" fzf
 nnoremap ` :FZF<CR>
-nnoremap <C-P> :Ag<CR>
+nnoremap <C-P> :Rg<CR>
 nnoremap <Leader>b :Buffers<CR>
 """ Customize fzf colors to match your color scheme
 let g:fzf_colors =
