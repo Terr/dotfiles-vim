@@ -101,6 +101,10 @@ set hidden  " Allow switching to other buffers from an unsaved one
 set splitbelow
 set splitright
 
+" Enforce shell (instead of the current user's one) to give consistent
+" results. 'sh' should be available on all systems.
+set shell=/bin/sh
+
 " Search settings
 set incsearch
 set hlsearch
