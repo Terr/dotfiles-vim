@@ -176,6 +176,20 @@ let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/
 nnoremap ` :FZF<CR>
 nnoremap <C-P> :Rg<CR>
 nnoremap <Leader>b :Buffers<CR>
+nnoremap <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
+""" Add function & keybind for building a quickfix list out of the search results. Use with <C-A> <C-Q>
+"""" An action can be a reference to a function that processes selected lines.
+function! s:build_quickfix_list(lines)
+    call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+    copen
+    cc
+endfunction
+let g:fzf_action = {
+    \ 'ctrl-q': function('s:build_quickfix_list'),
+    \ 'ctrl-t': 'tab split',
+    \ 'ctrl-x': 'split',
+    \ 'ctrl-v': 'vsplit' }
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 """ Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
