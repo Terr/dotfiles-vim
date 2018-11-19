@@ -13,7 +13,7 @@ Plug 'junegunn/fzf.vim'
 "" Tmux navigator
 Plug 'christoomey/vim-tmux-navigator'
 "" Solarized color scheme
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 "" Auto-close brackets/quotes/etc.
 Plug 'optroot/auto-pairs'
 "" vim-surround
@@ -93,7 +93,7 @@ set backspace=indent,eol,start
 set t_Co=256
 let g:solarized_termcolors=256
 set background=light
-colorscheme solarized
+colorscheme solarized8_custom
 
 " Backup settings
 set nobackup
