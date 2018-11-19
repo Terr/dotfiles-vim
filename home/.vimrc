@@ -181,6 +181,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 "" fzf
+"command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 nnoremap ` :FZF<CR>
 nnoremap <C-P> :Rg<CR>
 nnoremap <Leader>b :Buffers<CR>
@@ -197,7 +198,11 @@ let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-x': 'split',
     \ 'ctrl-v': 'vsplit' }
-let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+if executable('bat')
+    let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --preview "bat --theme="GitHub" --style=numbers,changes --color=always {1..-1} | head -'.&lines.'"'
+else
+    let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+endif
 """ Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
