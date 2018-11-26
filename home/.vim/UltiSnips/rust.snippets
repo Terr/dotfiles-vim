@@ -31,6 +31,25 @@ impl Iterator for ${1:Type} {
 }
 endsnippet
 
+# Hash trait
+snippet "impl Hash" "Implement Hash trait"
+impl Hash for ${1:Type} {
+    fn hash<H: Hasher>(&self, state: &mut H) {
+        ${2}
+    }
+}
+endsnippet
+
+
+# AsRef trait
+snippet "impl AsRef" "Implement AsRef trait"
+impl AsRef<${1:Type}> for ${2:Type} {
+    fn as_ref(&self) -> &${1} {
+        ${3}
+    }
+}
+endsnippet
+
 # tests mod block
 snippet tests "Create tests mod block"
 #[cfg(test)]
