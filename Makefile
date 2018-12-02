@@ -9,6 +9,9 @@ ifeq ($(OS), Linux)
 	IS_LINUX = 1
 endif
 
+RLS = ${HOME}/.cargo/bin/rls
+RUST_FMT = ${HOME}/.cargo/bin/cargo-fmt
+RUST_CLIPPY = ${HOME}/.cargo/bin/cargo-clippy
 
 all: youcompleteme ctags
 
@@ -17,8 +20,20 @@ youcompleteme:
 	vim -c PlugInstall -c qa
 	cd home/.vim/plugged/YouCompleteMe/ && \
 		./install.py \
-			--tern-completer \
-			--racer-completer
+			--tern-complete
+
+# Rust language server
+rls: $(RLS)
+$(RLS):
+	rustup component add rls-preview rust-analysis rust-src
+
+rust_fmt: $(RUST_FMT)
+$(RUST_FMT):
+	rustup component add rustfmt-preview
+
+rust_clippy: $(RUST_CLIPPY)
+$(RUST_CLIPPY):
+	rustup component add clippy-preview
 
 ctags:
 ifeq ($(IS_MACOS), 1)
