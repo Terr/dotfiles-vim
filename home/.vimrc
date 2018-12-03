@@ -34,8 +34,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 "" Snippets
 Plug 'SirVer/ultisnips'
-"" Vimwiki
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 "" Better Python indentation
 Plug 'Vimjas/vim-python-pep8-indent'
 "" Go development plugin
@@ -270,19 +268,6 @@ let g:ale_rust_cargo_use_clippy = 1
 
 " vim-dispatch
 let g:nremap = {"`": "\""}
-
-"" vimwiki
-nmap <Leader>vw <Plug>VimwikiIndex
-nmap <Leader>vt <Plug>VimwikiTabIndex
-nmap <Leader>vs <Plug>VimwikiUISelect
-nmap <Leader>vi <Plug>VimwikiDiaryIndex
-nmap <Leader>v<Leader>w <Plug>VimwikiMakeDiaryNote
-nmap <Leader>v<Leader>t <Plug>VimwikiTabMakeDiaryNote
-nmap <Leader>v<Leader>y <Plug>VimwikiMakeYesterdayDiaryNote
-nmap <Leader>v<Leader>m <Plug>VimwikiMakeTomorrowDiaryNote
-nmap <Leader>v<Leader>i <Plug>VimwikiDiaryGenerateLinks
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                     \ 'syntax': 'markdown', 'ext': '.md'}]
 
 "" nerdcommenter
 nmap  <Plug>NERDCommenterToggle<CR>
