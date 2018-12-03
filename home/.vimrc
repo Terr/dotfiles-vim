@@ -210,10 +210,24 @@ let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-x': 'split',
     \ 'ctrl-v': 'vsplit' }
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 if executable('bat')
-    let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all --preview "bat --theme="GitHub" --style=numbers,changes --color=always {1..-1} | head -'.&lines.'"'
-else
-    let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+    function! s:edit_file_at_line(item)
+        let l:file_pos = stridx(a:item, ':')
+        let l:file_path = a:item[0:file_pos-1]
+        let l:line_pos = stridx(a:item, ':', file_pos+1)
+        let l:linenum = a:item[file_pos+1:line_pos-1]
+        execute 'silent e +'.l:linenum.' '.fnameescape(l:file_path)
+    endfunction
+    command! -bang -nargs=* Rg call fzf#run(fzf#wrap(
+        \ {
+            \ 'source': 'rg --fixed-strings --follow --no-heading --line-number --color "always" '.shellescape(<q-args>).'| tr -d "\017"',
+            \ 'dir': getcwd(),
+            \ 'sink': function('s:edit_file_at_line'),
+            \ 'options': ['--ansi', '--nth', '2..', '--delimiter', ':', '--tiebreak=index', '--multi', '--prompt', 'Rg> ', '--preview', 'sh -c "bat --theme="GitHub" --style=numbers,changes --color=always $(echo {1..-1}|cut -f1 -d:) --line-range=$(LINENUM=$(($(echo {1..-1}|cut -f2 -d:) - 2)); if [ $LINENUM -lt 0 ]; then echo 0; else echo $LINENUM; fi): | head -'.&lines.'"']
+        \ },
+        \ <bang>0,
+    \ ))
 endif
 """ Customize fzf colors to match your color scheme
 let g:fzf_colors =
