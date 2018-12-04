@@ -9,11 +9,11 @@ ifeq ($(OS), Linux)
 	IS_LINUX = 1
 endif
 
-RLS = ${HOME}/.cargo/bin/rls
-RUST_FMT = ${HOME}/.cargo/bin/cargo-fmt
-RUST_CLIPPY = ${HOME}/.cargo/bin/cargo-clippy
+RLS = ${HOME}/.rustup/toolchains/*/bin/rls
+RUST_FMT = ${HOME}/.rustup/toolchains/*/bin/cargo-fmt
+RUST_CLIPPY = ${HOME}/.rustup/toolchains/*/bin/cargo-clippy
 
-all: youcompleteme ctags
+all: youcompleteme ctags rls rust_fmt rust_clippy
 
 youcompleteme:
 	# Ensure YouCompleteMe is installed
