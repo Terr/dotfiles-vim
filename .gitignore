@@ -1,3 +1,5 @@
 .netrwhist
 *.py[c|o]
 home/.vim/plugged
+# Machine-local settings
+**/*_local.vim
