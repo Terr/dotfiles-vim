@@ -196,7 +196,6 @@ let g:ycm_filetype_blacklist = {
 "" fzf
 "command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 nnoremap ` :FZF<CR>
-nnoremap <C-P> :Rg<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
 """ Add function & keybind for building a quickfix list out of the search results. Use with <C-A> <C-Q>
@@ -213,7 +212,7 @@ let g:fzf_action = {
     \ 'ctrl-v': 'vsplit' }
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 if executable('bat')
-    command! -bang -nargs=* Rg call fzf#run(fzf#wrap(
+    command! -bang -nargs=* RgPreview call fzf#run(fzf#wrap(
         \ {
             \ 'source': 'rg --fixed-strings --follow --no-heading --line-number --color "always" '.shellescape(<q-args>).'| tr -d "\017"',
             \ 'dir': getcwd(),
@@ -222,6 +221,9 @@ if executable('bat')
         \ },
         \ <bang>0,
     \ ))
+    nnoremap <C-P> :RgPreview<CR>
+else
+    nnoremap <C-P> :Rg<CR>
 endif
 """ Customize fzf colors to match your color scheme
 let g:fzf_colors =
