@@ -180,6 +180,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 """ Language blacklist (including defaults)
 let g:ycm_filetype_blacklist = {
     \ 'rust': 1,
+    \ 'typescript': 1,
     \ 'tagbar': 1,
     \ 'qf': 1,
     \ 'notes': 1,
@@ -260,13 +261,14 @@ let g:go_template_autocreate = 0
 "" ALE
 let g:ale_completion_enabled = 1
 let g:ale_lint_delay = 100
-let g:ale_lint_on_text_changed = 'insert'
+let g:ale_lint_on_text_changed = 'always'
 let g:ale_linters = {
     \ 'rust': ['rls', 'cargo'],
 \ }
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
     \ 'rust': ['rustfmt'],
+    \ 'typescript': ['tslint']
 \ }
 """ Language specific settings
 let g:ale_php_phpmd_ruleset = ''
