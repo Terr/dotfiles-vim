@@ -91,7 +91,7 @@ set backspace=indent,eol,start
 set t_Co=256
 let g:solarized_termcolors=256
 set background=light
-colorscheme solarized
+colorscheme solarized-custom
 
 " Backup settings
 set nobackup
