@@ -32,6 +32,11 @@ Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdcommenter'
 "" Asynchronous linting
 Plug 'w0rp/ale'
+" Language Server Protocol client
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "" Snippets
 Plug 'SirVer/ultisnips'
 "" Better Python indentation
@@ -41,7 +46,7 @@ Plug 'fatih/vim-go'
 "" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug', { 'branch': 'python3' }
 "" More clever tab completions
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 "" Rust file detection, syntax highlighting, etc.
 Plug 'rust-lang/rust.vim'
 "" PHP syntax highlighting
@@ -172,7 +177,7 @@ autocmd FileType c,cpp,java,rust,php,python,javascript,html,ruby autocmd BufWrit
 nmap <Leader>d :YcmCompleter GoToDefinition<CR>
 nmap <Leader>g :YcmCompleter GetDoc<CR>
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
-let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 """ Make YCM compatible with UltiSnips (using SuperTab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -260,7 +265,7 @@ let g:AutoPairsOnlyBeforeClose = 1
 let g:go_template_autocreate = 0
 
 "" ALE
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 let g:ale_lint_delay = 100
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_linters = {
@@ -289,3 +294,18 @@ let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsListSnippets  = "<C-Tab>"
 let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+
+"" vim-lsp / async.vim
+""" More configuration can be found in the ftplugin/ scripts
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'nightly', 'rls']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'Cargo.toml'))},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
