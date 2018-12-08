@@ -2,6 +2,14 @@ snippet extern "extern crate"
 extern crate ${1:mod};
 endsnippet
 
+snippet println "println! macro"
+println!("${1:{}}", $2);
+endsnippet
+
+#
+# Traits
+#
+
 # Display trait
 snippet "impl Display" "Implement Display trait"
 impl fmt::Display for ${1:Type} {
@@ -50,6 +58,10 @@ impl AsRef<${1:Type}> for ${2:Type} {
 }
 endsnippet
 
+#
+# Blocks
+#
+ 
 # tests mod block
 snippet tests "Create tests mod block"
 #[cfg(test)]

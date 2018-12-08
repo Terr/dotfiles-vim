@@ -9,7 +9,7 @@ ifeq ($(OS), Linux)
 	IS_LINUX = 1
 endif
 
-RLS = ${HOME}/.rustup/toolchains/*/bin/rls
+RLS = ${HOME}/.rustup/toolchains/nightly*/bin/rls
 RUST_FMT = ${HOME}/.rustup/toolchains/*/bin/cargo-fmt
 RUST_CLIPPY = ${HOME}/.rustup/toolchains/*/bin/cargo-clippy
 
@@ -25,7 +25,7 @@ youcompleteme:
 # Rust language server
 rls: $(RLS)
 $(RLS):
-	rustup component add rls-preview rust-analysis rust-src
+	rustup component add rls-preview rust-analysis rust-src --toolchain nightly
 
 rust_fmt: $(RUST_FMT)
 $(RUST_FMT):

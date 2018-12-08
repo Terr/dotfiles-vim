@@ -265,7 +265,7 @@ let g:ale_completion_enabled = 1
 let g:ale_lint_delay = 100
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_linters = {
-    \ 'rust': ['rls', 'cargo', 'cargo-clippy'],
+    \ 'rust': ['rls', 'cargo'],
 \ }
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
@@ -274,7 +274,7 @@ let g:ale_fixers = {
 \ }
 """ Language specific settings
 let g:ale_php_phpmd_ruleset = ''
-let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_rust_rls_toolchain = 'nightly'
 let g:ale_rust_cargo_use_clippy = 1
 
 " vim-dispatch
