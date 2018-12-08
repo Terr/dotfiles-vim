@@ -250,7 +250,6 @@ nnoremap <silent> <C-Right> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-BS> :TmuxNavigatePrevious<cr>
 
 "" auto-pairs
-let g:AutoPairsShortcutFastWrap = '<C-e>'
 """ Extra settings added in 'optroot' fork
 let g:AutoPairsMultilineClose = 0
 let g:AutoPairsBalanceImmediately = 1
