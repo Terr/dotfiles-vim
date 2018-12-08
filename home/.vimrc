@@ -40,7 +40,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'fatih/vim-go'
 "" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug', { 'branch': 'python3' }
-"" Supertab
+"" More clever tab completions
 Plug 'ervandew/supertab'
 "" Rust file detection, syntax highlighting, etc.
 Plug 'rust-lang/rust.vim'
@@ -286,6 +286,7 @@ vmap  <Plug>NERDCommenterToggle<CR>
 
 "" UltiSnips
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsExpandTrigger = "<C-e>"
+let g:UltiSnipsListSnippets  = "<C-Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
