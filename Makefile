@@ -1,3 +1,4 @@
+NPROC ?= $(shell nproc --all)
 # OS detection
 OS := $(shell uname)
 IS_MACOS = 0
@@ -12,8 +13,42 @@ endif
 RLS = ${HOME}/.cargo/bin/rls
 RUST_FMT = ${HOME}/.cargo/bin/cargo-fmt
 RUST_CLIPPY = ${HOME}/.cargo/bin/cargo-clippy
+VIM = /usr/local/bin/vim
+VIM_VERSION ?= 8.1.0608
 
-all: youcompleteme ctags
+all: vim youcompleteme ctags rust
+rust: rls rust_fmt rust_clippy
+
+vim: $(VIM)
+.ONESHELL:
+$(VIM):
+	$(eval TMPDIR := $(shell mktemp --directory))
+	cd ${TMPDIR}
+	curl -L https://github.com/vim/vim/archive/v${VIM_VERSION}.tar.gz|tar zx
+	cd vim-${VIM_VERSION}
+	
+	sudo apt install -y \
+		libncursesw5-dev \
+		libpython3-dev \
+		libx11-dev \
+		libxt-dev \
+		python3-distutils
+	./configure \
+		--disable-darwin \
+		--disable-gpm \
+		--disable-netbeans \
+		--enable-cscope \
+		--enable-gui=no \
+		--enable-python3interp=yes \
+		--enable-terminal \
+		--with-compiledby='T E R R' \
+		--with-python3-command=/usr/bin/python3 \
+		--with-x 
+	#cd src
+	#make -j${NPROC}
+	#sudo make install
+	#cd /
+	#rm -rf ${TMPDIR}
 
 youcompleteme:
 	# Ensure YouCompleteMe is installed
