@@ -217,7 +217,7 @@ if executable('bat')
             \ 'source': 'rg --fixed-strings --follow --no-heading --line-number --color "always" '.shellescape(<q-args>).'| tr -d "\017"',
             \ 'dir': getcwd(),
             \ 'sink': function('EditFileAtLine'),
-            \ 'options': ['--ansi', '--nth', '2..', '--delimiter', ':', '--tiebreak=index', '--multi', '--prompt', 'Rg> ', '--preview', 'sh -c "bat --theme="GitHub" --style=numbers,changes --color=always $(echo {1..-1}|cut -f1 -d:) --line-range=$(LINENUM=$(($(echo {1..-1}|cut -f2 -d:) - 2)); if [ $LINENUM -lt 0 ]; then echo 0; else echo $LINENUM; fi): | head -'.&lines.'"']
+            \ 'options': ['--ansi', '--nth', '2..', '--delimiter', ':', '--tiebreak=index', '--multi', '--prompt', 'Rg> ', '--preview', 'sh -c "bat --theme=\"Monokai Extended Light\" --style=numbers,changes --color=always $(echo {1..-1}|cut -f1 -d:) --line-range=$(LINENUM=$(($(echo {1..-1}|cut -f2 -d:) - 2)); if [ $LINENUM -lt 0 ]; then echo 0; else echo $LINENUM; fi): | head -'.&lines.'"']
         \ },
         \ <bang>0,
     \ ))
