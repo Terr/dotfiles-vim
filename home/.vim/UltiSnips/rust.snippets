@@ -10,6 +10,15 @@ endsnippet
 # Traits
 #
 
+# AsRef trait
+snippet "impl AsRef" "Implement AsRef trait"
+impl AsRef<${1:Type}> for ${2:Type} {
+    fn as_ref(&self) -> &${1} {
+        ${3}
+    }
+}
+endsnippet
+
 # Display trait
 snippet "impl Display" "Implement Display trait"
 impl fmt::Display for ${1:Type} {
@@ -28,15 +37,17 @@ impl From<$1> for ${2:Type} {
 }
 endsnippet
 
-# Iterator trait
-snippet "impl Iterator" "Implement Iterator trait"
-impl Iterator for ${1:Type} {
-    type Item = ${2:Type};
+# Tokio/Futures: Future trait
+snippet "impl Future" "Implement Future trait"
+impl Future for ${1:Type} {
+	type Item = ${2:()};
+	type Error = ${3:()};
 
-    fn next(&mut self) -> Option<$2> {
-        ${3}
-    }
+	fn poll(&mut self) -> Poll<$2, $3> {
+		$4
+	}
 }
+use futures::{Async, Future, Poll};
 endsnippet
 
 # Hash trait
@@ -48,14 +59,28 @@ impl Hash for ${1:Type} {
 }
 endsnippet
 
+# Iterator trait
+snippet "impl Iterator" "Implement Iterator trait"
+impl Iterator for ${1:Type} {
+    type Item = ${2:Type};
 
-# AsRef trait
-snippet "impl AsRef" "Implement AsRef trait"
-impl AsRef<${1:Type}> for ${2:Type} {
-    fn as_ref(&self) -> &${1} {
+    fn next(&mut self) -> Option<$2> {
         ${3}
     }
 }
+endsnippet
+
+# Tokio/Futures: Stream trait
+snippet "impl Stream" "Implement Stream trait"
+impl Stream for ${1:Type} {
+	type Item = ${2:()};
+	type Error = ${3:()};
+
+	fn poll(&mut self) -> Poll<Option<$2>, $3> {
+		$4
+	}
+}
+use futures::{Async, Poll, Stream};
 endsnippet
 
 #
