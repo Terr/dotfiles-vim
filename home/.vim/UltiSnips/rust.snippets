@@ -28,6 +28,15 @@ impl fmt::Display for ${1:Type} {
 }
 endsnippet
 
+# Drop trait
+snippet "impl Drop" "Implement Drop trait"
+impl Drop for ${1:Type} {
+    fn drop(&mut self) {
+        $2
+    }
+}
+endsnippet
+
 # From trait
 snippet "impl From" "Implement From trait"
 impl From<$1> for ${2:Type} {
