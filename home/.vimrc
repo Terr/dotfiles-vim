@@ -172,7 +172,7 @@ autocmd FileType c,cpp,java,rust,php,python,javascript,html,ruby autocmd BufWrit
 nmap <Leader>d :YcmCompleter GoToDefinition<CR>
 nmap <Leader>g :YcmCompleter GetDoc<CR>
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
-let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
+let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 """ Make YCM compatible with UltiSnips (using SuperTab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -260,14 +260,14 @@ let g:AutoPairsOnlyBeforeClose = 1
 let g:go_template_autocreate = 0
 
 "" ALE
-let g:ale_completion_enabled = 1
-let g:ale_lint_delay = 250
+let g:ale_completion_enabled = 0
+let g:ale_lint_delay = 125
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_fix_on_save = 1
 let g:ale_sign_info = '^^'
 let g:ale_sign_style_error = '}}'
 let g:ale_linters = {
-    \ 'rust': ['rls', 'cargo'],
+    \ 'rust': ['cargo'], 
 \ }
 let g:ale_fixers = {
     \ 'rust': ['rustfmt'],
@@ -275,8 +275,9 @@ let g:ale_fixers = {
 \ }
 """ Language specific settings
 let g:ale_php_phpmd_ruleset = ''
-let g:ale_rust_rls_toolchain = 'nightly'
+let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_rust_cargo_use_clippy = 1
+let g:ale_rust_cargo_check_tests = 1
 
 " vim-dispatch
 let g:nremap = {"`": "\""}
