@@ -32,6 +32,8 @@ Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdcommenter'
 "" Asynchronous linting
 Plug 'w0rp/ale'
+"" Automatically builds tag files
+Plug 'ludovicchabant/vim-gutentags'
 "" Snippets
 Plug 'SirVer/ultisnips'
 "" Better Python indentation
@@ -292,3 +294,9 @@ let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsListSnippets  = "<C-Tab>"
 "let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 "let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+
+"" Gutentags
+let g:gutentags_cache_dir = "~/.tags"
+let g:gutentags_generate_on_missing = 0
+let g:gutentags_generate_on_new = 0
+let g:gutentags_file_list_command = "fd"
