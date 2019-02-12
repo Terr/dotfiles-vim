@@ -299,4 +299,4 @@ let g:UltiSnipsListSnippets  = "<C-Tab>"
 let g:gutentags_cache_dir = "~/.tags"
 let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_new = 0
-let g:gutentags_file_list_command = "fd"
+let g:gutentags_file_list_command = "fd --no-ignore"
