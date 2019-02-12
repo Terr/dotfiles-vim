@@ -39,7 +39,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 "" Go development plugin
 Plug 'fatih/vim-go'
 "" Visual debugger for multiple langauges
-Plug 'markkimsal/vdebug', { 'branch': 'python3' }
+Plug 'markkimsal/vdebug'
 "" More clever tab completions
 Plug 'ervandew/supertab'
 "" Rust file detection, syntax highlighting, etc.
