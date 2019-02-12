@@ -289,5 +289,5 @@ vmap  <Plug>NERDCommenterToggle<CR>
 let g:UltiSnipsSnippetsDir = "~/.vim/UltiSnips"
 let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsListSnippets  = "<C-Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+"let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+"let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
