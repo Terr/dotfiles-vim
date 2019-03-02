@@ -308,7 +308,11 @@ let g:UltiSnipsListSnippets  = "<C-Tab>"
 "let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
 "" Gutentags
-let g:gutentags_cache_dir = "~/.ctags"
+let g:gutentags_cache_dir = "~/.tags"
+""" Ignore PHP 'use' aliases when building tags
+let g:gutentags_ctags_extra_args = [
+    \ "--kinds-PHP=-a",
+\ ]
 let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_new = 0
 let g:gutentags_file_list_command = "fd --no-ignore"
