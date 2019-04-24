@@ -269,6 +269,7 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_info = '^^'
 let g:ale_sign_style_error = '}}'
 let g:ale_linters = {
+    \ 'php': ['phpmd'],
     \ 'rust': ['cargo'], 
 \ }
 let g:ale_fixers = {
@@ -276,7 +277,7 @@ let g:ale_fixers = {
     \ 'typescript': ['tslint']
 \ }
 """ Language specific settings
-let g:ale_php_phpmd_ruleset = ''
+let g:ale_php_phpmd_ruleset = 'unusedcode'
 let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_rust_cargo_check_tests = 1
