@@ -196,6 +196,7 @@ let g:ycm_filetype_blacklist = {
     \}
 
 "" fzf
+let g:fzf_history_dir='~/.local/share/fzf-history'
 "command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 nnoremap ` :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
