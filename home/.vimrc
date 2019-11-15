@@ -89,6 +89,10 @@ set shiftround
 " Make backspace behave as 'usual'
 set backspace=indent,eol,start
 
+" Statusline
+"" Always show a status line
+set laststatus=2
+
 " Theme / colors
 set t_Co=256
 let g:solarized_termcolors=256
