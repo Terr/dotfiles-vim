@@ -224,7 +224,7 @@ if executable('bat')
             \ 'source': 'rg --fixed-strings --follow --no-heading --line-number --trim --color "always" '.shellescape(<q-args>).'| tr -d "\017"',
             \ 'dir': getcwd(),
             \ 'sink': function('EditFileAtLine'),
-            \ 'options': ['--ansi', '--nth', '2..', '--delimiter', ':', '--tiebreak=index', '--multi', '--prompt', 'Rg> ', '--preview', 'sh -c "bat --theme=\"Monokai Extended Light\" --style=numbers,changes --color=always $(echo {1..-1}|cut -f1 -d:) $(LINENUM=$(($(echo {1..-1}|cut -f2 -d:) - 2)); if [ $LINENUM -lt 0 ]; then echo --line-range=1: --highlight-line=1; else echo --line-range=$LINENUM: --highlight-line=$(($LINENUM + 2)); fi) | head -'.&lines.'"']
+            \ 'options': ['--ansi', '--nth', '2..', '--delimiter', ':', '--tiebreak=index', '--multi', '--prompt', 'Rg> ', '--preview', 'sh -c "echo {1} && bat --theme=\"Monokai Extended Light\" --style=numbers,changes --color=always $(echo {1..-1}|cut -f1 -d:) $(LINENUM=$(($(echo {1..-1}|cut -f2 -d:) - 2)); if [ $LINENUM -lt 0 ]; then echo --line-range=1: --highlight-line=1; else echo --line-range=$LINENUM: --highlight-line=$(($LINENUM + 2)); fi) | head -'.&lines.'"']
         \ },
         \ <bang>0,
     \ ))
