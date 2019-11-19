@@ -31,7 +31,7 @@ Plug 'tpope/vim-dispatch'
 "" Line/block comments
 Plug 'scrooloose/nerdcommenter'
 "" Asynchronous linting
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 "" Automatically builds tag files
 Plug 'ludovicchabant/vim-gutentags'
 "" Snippets
