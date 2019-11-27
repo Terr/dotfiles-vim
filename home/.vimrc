@@ -36,14 +36,16 @@ Plug 'dense-analysis/ale'
 Plug 'ludovicchabant/vim-gutentags'
 "" Snippets
 Plug 'SirVer/ultisnips'
-"" Better Python indentation
-Plug 'Vimjas/vim-python-pep8-indent'
-"" Go development plugin
-Plug 'fatih/vim-go'
 "" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug'
 "" More clever tab completions
 Plug 'ervandew/supertab'
+"" Project-based configuration
+Plug 'tpope/vim-projectionist'
+"" Better Python indentation
+Plug 'Vimjas/vim-python-pep8-indent'
+"" Go development plugin
+Plug 'fatih/vim-go'
 "" Rust file detection, syntax highlighting, etc.
 Plug 'rust-lang/rust.vim'
 "" PHP syntax highlighting
