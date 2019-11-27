@@ -50,6 +50,8 @@ Plug 'rust-lang/rust.vim'
 Plug 'StanAngeloff/php.vim'
 "" TypeScript syntax highlighting
 Plug 'leafgarland/typescript-vim'
+"" Improved C++ syntax highlighting
+Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 " Setup for tmux environments
