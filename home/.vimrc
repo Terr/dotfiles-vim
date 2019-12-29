@@ -222,7 +222,7 @@ let g:fzf_action = {
     \ 'ctrl-t': 'tab split',
     \ 'ctrl-x': 'split',
     \ 'ctrl-v': 'vsplit' }
-let $FZF_DEFAULT_COMMAND = 'fd --hidden --follow --exclude .git'
+let $FZF_DEFAULT_COMMAND = 'fd --hidden --follow --type file --type symlink --exclude .git'
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 if executable('bat')
     command! -bang -nargs=* RgPreview call fzf#run(fzf#wrap(
