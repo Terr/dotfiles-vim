@@ -163,6 +163,10 @@ vmap s :sort<CR>
 " Switch to previous buffer with backspace
 nmap <BS> <C-^>
 
+" Pre-fill find/replace with text under cursor
+nnoremap <F2> :%s#<C-r>=expand("<cword>")<CR>#
+vnoremap <F2> :<C-u>%s#<C-r>*#
+
 " Bubble single line
 nmap <C-S-Up> [e
 nmap <C-S-Down> ]e
