@@ -5,8 +5,6 @@ autocmd! bufwritepost .vimrc source %
 
 " Plugins
 call plug#begin('~/.vim/plugged')
-"" Autocompletion
-Plug 'Valloric/YouCompleteMe'
 "" Fuzzy file finder
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -32,14 +30,14 @@ Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdcommenter'
 "" Asynchronous linting
 Plug 'dense-analysis/ale'
+"" Language server client
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "" Automatically builds tag files
 Plug 'ludovicchabant/vim-gutentags'
 "" Snippets
 Plug 'SirVer/ultisnips'
 "" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug'
-"" More clever tab completions
-Plug 'ervandew/supertab'
 "" Project-based configuration
 Plug 'tpope/vim-projectionist'
 "" Better Python indentation
@@ -97,6 +95,8 @@ set backspace=indent,eol,start
 "" Always show a status line
 set laststatus=2
 
+set shortmess+=c
+
 " Theme / colors
 set t_Co=256
 let g:solarized_termcolors=256
@@ -105,8 +105,10 @@ colorscheme solarized-custom
 
 " Backup settings
 set nobackup
+set nowritebackup
 set nowb
 set noswapfile
+set updatetime=300  " Also used for the CursorHold event
 
 " Buffer settings
 set hidden  " Allow switching to other buffers from an unsaved one
@@ -182,30 +184,6 @@ set fileencoding=utf-8
 autocmd FileType c,cpp,java,rust,php,python,javascript,html,ruby autocmd BufWritePre <buffer> :keepjumps call setline(1,map(getline(1 ,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " Plugin related settings
-"" YouCompleteMe
-nmap <Leader>d :YcmCompleter GoToDefinition<CR>
-nmap <Leader>g :YcmCompleter GetDoc<CR>
-let g:ycm_goto_buffer_command = 'split-or-existing-window'
-let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
-""" Make YCM compatible with UltiSnips (using SuperTab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-""" Language blacklist (including defaults)
-let g:ycm_filetype_blacklist = {
-    \ 'rust': 1,
-    \ 'typescript': 1,
-    \ 'tagbar': 1,
-    \ 'qf': 1,
-    \ 'notes': 1,
-    \ 'markdown': 1,
-    \ 'unite': 1,
-    \ 'text': 1,
-    \ 'vimwiki': 1,
-    \ 'pandoc': 1,
-    \ 'infolog': 1,
-    \ 'mail': 1
-    \}
 
 "" fzf
 let g:fzf_history_dir='~/.local/share/fzf-history'
@@ -283,9 +261,11 @@ let g:ale_lint_on_text_changed = 'always'
 let g:ale_fix_on_save = 1
 let g:ale_sign_info = '^^'
 let g:ale_sign_style_error = '}}'
+let g:ale_linters_explicit = 1
 let g:ale_linters = {
     \ 'php': ['phpmd'],
-    \ 'rust': ['cargo'], 
+    \ 'rust': [],
+    \ 'cpp': [],
 \ }
 let g:ale_fixers = {
     \ 'rust': ['rustfmt'],
@@ -297,7 +277,85 @@ let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_rust_cargo_check_tests = 1
 
-" vim-dispatch
+"" coc.nvim
+""" Use <c-space> to trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+""" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+""" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<Tab>'
+let g:coc_snippet_prev = '<S-Tab>'
+
+""" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+""" Remap keys for gotos
+nmap <silent> <LeadeR>d <Plug>(coc-definition)
+nmap <silent> <Leader>y <Plug>(coc-type-definition)
+nmap <silent> <Leader>i <Plug>(coc-implementation)
+nmap <silent> <Leader>r <Plug>(coc-references)
+nmap <silent> <Leader>h <Plug>(coc-diagnostic-info)
+nmap <Leader>s :CocSearch <C-r>=expand("<cword>")<CR><CR>
+
+""" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    else
+        call CocAction('doHover')
+    endif
+endfunction
+
+"" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+""" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+""" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+""" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+""" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+""" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+""" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+""" use `:OR` for organize import of current buffer
+command! -nargs=0 OR :call CocAction('runCommand', 'editor.action.organizeImport')
+
+"" vim-dispatch
 let g:nremap = {"`": "\""}
 
 "" nerdcommenter

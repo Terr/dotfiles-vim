@@ -1,0 +1,33 @@
+{
+    "diagnostic.checkCurrentLine": true,
+    "diagnostic.messageTarget": "echo",
+    "languageserver": {
+        "cpp": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+            "args": ["-v=1", "-log-file=/tmp/ccls.log"],
+            "initializationOptions": {}
+        },
+        "golang": {
+            "command": "gopls",
+            "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+            "filetypes": ["go"],
+            "initializationOptions": {
+                "usePlaceholders": true
+            }
+        },
+        "python": {
+            "command": "pyls",
+            "filetypes": ["python"],
+            "rootPatterns": [".git/", ".hg/", "setup.py", "main.py"],
+            "args": ["--verbose", "--log-file /tmp/pyls.log"]
+        },
+        "rust": {
+            "command": "rls",
+            "filetypes": ["rust"],
+            "rootPatterns": ["Cargo.toml"],
+            "args": []
+        }
+    }
+}
