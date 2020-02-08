@@ -29,5 +29,7 @@
             "rootPatterns": ["Cargo.toml"],
             "args": []
         }
-    }
+    },
+
+    "rust.clippy_preference": "on"
 }
