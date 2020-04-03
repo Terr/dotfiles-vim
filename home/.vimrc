@@ -57,7 +57,7 @@ call plug#end()
 
 " Setup for tmux environments
 set t_ut=
-if &term =~ '^screen'
+if &term =~ '^screen' || &term =~ '^tmux'
     " Make Vim recognize xterm escape sequences for Page and Arrow
     " keys combined with modifiers such as Shift, Control, and Alt.
     " See http://www.reddit.com/r/vim/comments/1a29vk/_/c8tze8p
