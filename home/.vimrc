@@ -208,7 +208,7 @@ let g:fzf_action = {
 let $FZF_DEFAULT_COMMAND = 'fd --hidden --follow --type file --type symlink --exclude .git'
 let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 if executable('bat')
-    command! -bang -nargs=* RgPreview call fzf#run(fzf#wrap(
+    command! -bang -nargs=* Rg call fzf#run(fzf#wrap(
         \ {
             \ 'source': 'rg --fixed-strings --follow --no-heading --line-number --trim --color "always" '.shellescape(<q-args>).'| tr -d "\017"',
             \ 'dir': getcwd(),
@@ -217,10 +217,9 @@ if executable('bat')
         \ },
         \ <bang>0,
     \ ))
-    nnoremap <C-P> :RgPreview<CR>
-else
-    nnoremap <C-P> :Rg<CR>
 endif
+nnoremap <C-P> :Rg<CR>
+
 """ Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
