@@ -371,17 +371,11 @@ let g:UltiSnipsListSnippets  = "<C-Tab>"
 
 "" Gutentags
 let g:gutentags_cache_dir = "~/.tags"
-""" Ignore PHP 'use' aliases when building tags
-let g:gutentags_ctags_extra_args = [
-    \ "--kinds-PHP=-a",
-\ ]
 let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_new = 0
 let g:gutentags_file_list_command = "fd --no-ignore"
-""" 'etags' is the only format that is supported by YouCompleteMe
 """ Ignore PHP 'use' aliases when building tags
 let g:gutentags_ctags_extra_args = [
-    \ "--output-format=etags", 
     \ "--kinds-PHP=-a",
     \ "--languages=-CSS,JSON"
 \ ]
