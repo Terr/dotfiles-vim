@@ -192,6 +192,8 @@ let g:fzf_history_dir='~/.local/share/fzf-history'
 nnoremap ` :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>l :Lines<CR>
+nnoremap <Leader>w :Windows<CR>
+nnoremap <C-B> :BLines<CR>
 nnoremap <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
 vnoremap <F3> :<C-u>Rg <C-r>*<CR>
 """ Add function & keybind for building a quickfix list out of the search results. Use with <C-A> <C-Q>
