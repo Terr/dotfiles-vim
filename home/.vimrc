@@ -193,6 +193,7 @@ nnoremap ` :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>l :Lines<CR>
 nnoremap <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
+vnoremap <F3> :<C-u>Rg <C-r>*<CR>
 """ Add function & keybind for building a quickfix list out of the search results. Use with <C-A> <C-Q>
 """" An action can be a reference to a function that processes selected lines.
 function! s:build_quickfix_list(lines)
