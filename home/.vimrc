@@ -32,7 +32,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'dense-analysis/ale'
 "" Language server client
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-rls'
 "" Automatically builds tag files
 Plug 'ludovicchabant/vim-gutentags'
 "" Snippets
