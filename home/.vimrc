@@ -136,6 +136,7 @@ set wildignore+=*/.cache/*,*/cache/*
 " Line numbering
 set number
 set relativenumber
+set signcolumn=yes
 
 " Scroll settings
 set ruler
@@ -193,6 +194,7 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>l :Lines<CR>
 nnoremap <Leader>w :Windows<CR>
 nnoremap <C-B> :BLines<CR>
+nnoremap <Leader>t :Tags<CR>
 nnoremap <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
 vnoremap <F3> :<C-u>Rg <C-r>*<CR>
 """ Add function & keybind for building a quickfix list out of the search results. Use with <C-A> <C-Q>
@@ -309,7 +311,7 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 """ Remap keys for gotos
-nmap <silent> <LeadeR>d <Plug>(coc-definition)
+nmap <silent> <Leader>d <Plug>(coc-definition)
 nmap <silent> <Leader>y <Plug>(coc-type-definition)
 nmap <silent> <Leader>i <Plug>(coc-implementation)
 nmap <silent> <Leader>r <Plug>(coc-references)
