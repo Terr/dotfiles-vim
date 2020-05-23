@@ -83,7 +83,6 @@ set fo-=t  " don't automatically wrap text when typing
 
 " Indenting
 filetype indent plugin on
-set cindent
 set smartindent
 set autoindent
 set shiftround
