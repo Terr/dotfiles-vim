@@ -11,7 +11,7 @@ Plug 'junegunn/fzf.vim'
 "" Tmux navigator
 Plug 'christoomey/vim-tmux-navigator'
 "" Solarized color scheme
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 "" Auto-close brackets/quotes/etc.
 Plug 'optroot/auto-pairs'
 "" vim-surround
@@ -97,10 +97,14 @@ set laststatus=2
 set shortmess+=c
 
 " Theme / colors
-set t_Co=256
-let g:solarized_termcolors=256
+
+if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
 set background=light
-colorscheme solarized-custom
+colorscheme solarized8_high
 
 " Backup settings
 set nobackup
