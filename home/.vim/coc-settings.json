@@ -22,12 +22,6 @@
             "filetypes": ["python"],
             "rootPatterns": [".git/", ".hg/", "setup.py", "main.py"],
             "args": ["--verbose", "--log-file /tmp/pyls.log"]
-        },
-        "rust": {
-            "command": "rls",
-            "filetypes": ["rust"],
-            "rootPatterns": ["Cargo.toml"],
-            "args": []
         }
     },
 
