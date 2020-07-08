@@ -107,7 +107,7 @@ if has('termguicolors')
     set termguicolors
 endif
 set background=light
-colorscheme solarized8_high
+colorscheme solarized8_custom
 
 " Backup settings
 set nobackup
