@@ -71,6 +71,9 @@ if &term =~ '^screen' || &term =~ '^tmux'
     execute "set <xLeft>=\e[1;*D"
 endif
 
+" Increase redrawing speed
+set ttyfast
+
 " Syntax highlighting
 syntax enable
 
