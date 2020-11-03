@@ -176,6 +176,9 @@ nmap <BS> <C-^>
 nnoremap <F2> :%s#<C-r>=expand("<cword>")<CR>##g<Left><Left>
 vnoremap <F2> :<C-u>%s#<C-r>*#
 
+" Toggle for "paste"-mode
+set pastetoggle=<F5>
+
 " Bubble single line
 nmap <C-S-Up> [e
 nmap <C-S-Down> ]e
