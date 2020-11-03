@@ -41,17 +41,17 @@ Plug 'markkimsal/vdebug'
 "" Project-based configuration
 Plug 'tpope/vim-projectionist'
 "" Better Python indentation
-Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 "" Go development plugin
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 "" Rust file detection, syntax highlighting, etc.
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 "" PHP syntax highlighting
-Plug 'StanAngeloff/php.vim'
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 "" TypeScript syntax highlighting
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 "" Improved C++ syntax highlighting
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 call plug#end()
 
 " Setup for tmux environments
