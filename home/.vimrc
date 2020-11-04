@@ -95,6 +95,10 @@ set shiftround
 " Make backspace behave as 'usual'
 set backspace=indent,eol,start
 
+" Reduce delay of using 'O' after having used Esc to exit Insert mode
+" See: http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
+set timeoutlen=300
+
 " Statusline
 "" Always show a status line
 set laststatus=2
