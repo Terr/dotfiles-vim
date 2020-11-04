@@ -129,7 +129,7 @@ set splitright
 
 " Enforce shell (instead of the current user's one) to give consistent
 " results. 'sh' should be available on all systems.
-set shell=/bin/sh
+set shell=sh
 
 " Search settings
 set incsearch
