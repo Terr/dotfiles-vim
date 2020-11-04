@@ -76,6 +76,8 @@ set ttyfast
 
 " Syntax highlighting
 syntax enable
+"" Don't syntax highlight lines longer than this many columns wide
+set synmaxcol=300
 
 " Tab settings
 set tabstop=4
