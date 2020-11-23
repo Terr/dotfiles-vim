@@ -40,6 +40,8 @@ Plug 'SirVer/ultisnips'
 Plug 'markkimsal/vdebug'
 "" Project-based configuration
 Plug 'tpope/vim-projectionist'
+"" (c)tags navigation within file
+Plug 'preservim/tagbar'
 "" Better Python indentation
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 "" Go development plugin
@@ -398,6 +400,9 @@ let g:gutentags_ctags_extra_args = [
     \ "--kinds-PHP=-a",
     \ "--languages=-CSS,JSON"
 \ ]
+
+"" Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 "" vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
