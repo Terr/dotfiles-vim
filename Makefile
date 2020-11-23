@@ -21,7 +21,7 @@ RUST_CLIPPY = ${HOME}/.rustup/toolchains/*/bin/cargo-clippy
 VIM = /usr/local/bin/vim
 VIM_VERSION ?= 8.2.2035
 
-all: vim youcompleteme ctags rust
+all: vim ctags rust
 rust: rls rust_fmt rust_clippy
 
 .PHONY: vim
@@ -67,13 +67,6 @@ vim-dependencies:
 		libx11-dev \
 		libxt-dev \
 		python3-distutils
-
-youcompleteme:
-	# Ensure YouCompleteMe is installed
-	vim -c PlugInstall -c qa
-	cd home/.vim/plugged/YouCompleteMe/ && \
-		./install.py \
-			--tern-complete
 
 # Rust language server
 rls: $(RLS)
