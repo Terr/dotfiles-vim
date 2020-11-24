@@ -38,8 +38,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'SirVer/ultisnips'
 "" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug'
-"" Project-based configuration
-Plug 'tpope/vim-projectionist'
 "" (c)tags navigation within file
 Plug 'preservim/tagbar'
 "" Better Python indentation
