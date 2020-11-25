@@ -203,6 +203,7 @@ autocmd FileType c,cpp,java,rust,php,python,javascript,html,ruby,yaml autocmd Bu
 
 "" fzf
 let g:fzf_history_dir='~/.local/share/fzf-history'
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 "command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
 nnoremap ` :FZF<CR>
 nnoremap <Leader>b :Buffers<CR>
