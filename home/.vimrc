@@ -40,6 +40,10 @@ Plug 'SirVer/ultisnips'
 Plug 'markkimsal/vdebug'
 "" (c)tags navigation within file
 Plug 'preservim/tagbar'
+" Align text in table format
+Plug 'godlygeek/tabular'
+"" Notes
+Plug 'lifepillar/vim-outlaw'
 "" Better Python indentation
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 "" Go development plugin
@@ -402,6 +406,10 @@ let g:gutentags_ctags_extra_args = [
 
 "" Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+"" vim-outlaw
+""" Custom keybinds are set in after/ftplugin/outlaw.vim
+let g:no_outlaw_maps = 1
 
 "" vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
