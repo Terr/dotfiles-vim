@@ -22,6 +22,8 @@ nmap <silent> <c-k> :<c-u>call OutlawAddSibling(0)<cr>
 nmap <silent> <c-j> :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
 " 'Toggle auto-close'
 nmap <silent> gA :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
+vmap <silent> gq :call OutlawFormat()<cr>
+
 "call s:map('n', 'PrevSibling',     '<left>',  ":<c-u>call OutlawAutoClose()<cr>:call OutlawSibling('b')<cr>zv")
 "call s:map('n', 'NextSibling',     '<right>', ":<c-u>call OutlawAutoClose()<cr>:call OutlawSibling('')<cr>zv")
 "call s:map('v', 'MoveUp',          '<up>',    ":call OutlawMoveUp(v:count1)<cr>gv=:call OutlawAlignNote()<cr>gv")

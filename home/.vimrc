@@ -43,7 +43,7 @@ Plug 'preservim/tagbar'
 " Align text in table format
 Plug 'godlygeek/tabular'
 "" Notes
-Plug 'lifepillar/vim-outlaw'
+Plug 'Terr/vim-outlaw', { 'branch': 'indent-based-text-width' }
 "" Better Python indentation
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
 "" Go development plugin
