@@ -1,3 +1,17 @@
+setlocal textwidth=119
+
+" Format file on save
+function! s:outlaw_format()
+    if executable('outlaw-format') == 0
+        return
+    endif
+
+    let l:view = winsaveview()
+    keepjumps execute '%!outlaw-format'
+    call winrestview(l:view)
+endfunction
+autocmd! BufWritePre <buffer> :call s:outlaw_format()
+
 " Continue * lists on newline
 setlocal comments-=fb:*
 setlocal comments+=b:*
