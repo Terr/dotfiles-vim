@@ -196,6 +196,17 @@ nmap <C-S-Down> ]e
 vmap <C-S-Up> [egv
 vmap <C-S-Down> ]egv
 
+" Binding to copy the current relative path name of the current buffer to xclipboard
+nmap <silent> <Leader>yf :let @+=expand("%")<CR>
+" Binding to copy the full path name of the current buffer to xclipboard
+nmap <silent> <Leader>yF :let @+=expand("%:p")<CR>
+" Copy selection to xclipboard
+map <Leader>y "+yy
+vmap <Leader>y "+y
+" Paste selection from xclipboard
+map <Leader>p "+p
+map <Leader>P "+P
+
 " Default to UTF-8 text encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -332,7 +343,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 """ Remap keys for gotos
 nmap <silent> <Leader>d <Plug>(coc-definition)
-nmap <silent> <Leader>y <Plug>(coc-type-definition)
+nmap <silent> <Leader>e <Plug>(coc-type-definition)
 nmap <silent> <Leader>i <Plug>(coc-implementation)
 nmap <silent> <Leader>r <Plug>(coc-references)
 nmap <silent> <Leader>h <Plug>(coc-diagnostic-info)
