@@ -17,30 +17,30 @@ setlocal comments-=fb:*
 setlocal comments+=b:*
 
 " 'This fold level'
-nmap <silent> gl :<c-u>let &l:fdl=foldlevel(OutlawTopicLine())<cr>
+nmap <buffer> <silent> gl :<c-u>let &l:fdl=foldlevel(OutlawTopicLine())<cr>
 " 'Body text mode'
-nmap <silent> gy :<c-u>let b:outlaw_note_fold_level=b:outlaw_note_fold_level=='='?20:'='<cr>zx
+nmap <buffer> <silent> gy :<c-u>let b:outlaw_note_fold_level=b:outlaw_note_fold_level=='='?20:'='<cr>zx
 " 'Previous topic'
-nmap <silent> <C-p> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW')<cr>zv
+nmap <buffer> <silent> <C-p> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW')<cr>zv
 " 'Next topic'
-nmap <silent> <C-n> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
+nmap <buffer> <silent> <C-n> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
 " 'Parent'
-nmap <silent> _ :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('b')<cr>zv
+nmap <buffer> <silent> _ :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('b')<cr>zv
 " 'Uncle'
-nmap <silent> + :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('')<cr>zv
+nmap <buffer> <silent> + :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('')<cr>zv
 " 'Previous topic'
-nmap <silent> <Up> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW')<cr>zv
+nmap <buffer> <silent> <Up> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW')<cr>zv
 " 'Next topic'
-nmap <silent> <Down> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
+nmap <buffer> <silent> <Down> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
 " 'Add sibling below'
-nmap <silent> <cr> :<c-u>call OutlawAddSibling(1)<cr>
+nmap <buffer> <silent> <cr> :<c-u>call OutlawAddSibling(1)<cr>
 " 'Add sibling above'
-nmap <silent> <c-k> :<c-u>call OutlawAddSibling(0)<cr>
+nmap <buffer> <silent> <c-k> :<c-u>call OutlawAddSibling(0)<cr>
 " 'Add child'
-nmap <silent> <c-j> :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
+nmap <buffer> <silent> <c-j> :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
 " 'Toggle auto-close'
-nmap <silent> gA :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
-vmap <silent> gq :call OutlawFormat()<cr>
+nmap <buffer> <silent> gA :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
+vmap <buffer> <silent> gq :call OutlawFormat()<cr>
 
 "call s:map('n', 'PrevSibling',     '<left>',  ":<c-u>call OutlawAutoClose()<cr>:call OutlawSibling('b')<cr>zv")
 "call s:map('n', 'NextSibling',     '<right>', ":<c-u>call OutlawAutoClose()<cr>:call OutlawSibling('')<cr>zv")
