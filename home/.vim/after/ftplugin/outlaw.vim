@@ -25,9 +25,13 @@ nmap <silent> <C-p> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW'
 " 'Next topic'
 nmap <silent> <C-n> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
 " 'Parent'
-nmap <silent> - :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('b')<cr>zv
+nmap <silent> _ :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('b')<cr>zv
 " 'Uncle'
-nmap <silent> = :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('')<cr>zv
+nmap <silent> + :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('')<cr>zv
+" 'Previous topic'
+nmap <silent> <Up> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW')<cr>zv
+" 'Next topic'
+nmap <silent> <Down> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
 " 'Add sibling below'
 nmap <silent> <cr> :<c-u>call OutlawAddSibling(1)<cr>
 " 'Add sibling above'
