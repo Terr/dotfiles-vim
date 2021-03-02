@@ -107,6 +107,26 @@ set timeoutlen=300
 "" Always show a status line
 set laststatus=2
 
+set statusline=
+set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%#StatusLine#           " colour
+set statusline+=\ %n\                   " buffer number
+set statusline+=%{&paste?'\ PASTE\ ':''}
+set statusline+=%{&spell?'\ SPELL\ ':''}
+set statusline+=\ %f                    " relative file path
+set statusline+=\ %y                    " file type
+set statusline+=%r                      " readonly flag
+set statusline+=%m                      " modified [+] flag
+set statusline+=%=                      " right align
+set statusline+=%#StatusLineNC#         " colour
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ %3l:%-2c              " line + column
+set statusline+=\ [0x%-2B]              " byte value of char. under cursor
+set statusline+=\ %3p%%\                " percentage
+
 set shortmess+=c
 
 " Theme / colors
