@@ -437,7 +437,7 @@ let g:gutentags_ctags_extra_args = [
 \ ]
 
 "" Tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <F8> :TagbarOpen fj<CR>
 
 "" vim-outlaw
 """ Custom keybinds are set in after/ftplugin/outlaw.vim
