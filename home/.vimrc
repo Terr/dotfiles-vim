@@ -218,6 +218,7 @@ vmap <C-S-Down> ]egv
 
 " Binding to copy the current relative path name of the current buffer to xclipboard
 nmap <silent> <Leader>yf :let @+=expand("%")<CR>
+nmap <silent> <Leader>yl :let @+=expand("%").":".line(".")<CR>
 " Binding to copy the full path name of the current buffer to xclipboard
 nmap <silent> <Leader>yF :let @+=expand("%:p")<CR>
 " Copy selection to xclipboard
