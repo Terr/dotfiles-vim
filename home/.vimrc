@@ -124,7 +124,7 @@ set statusline+=%=                      " right align
 set statusline+=%#StatusLineNC#         " colour
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ %3l:%-2c              " line + column
-set statusline+=\ [0x%-2B]              " byte value of char. under cursor
+set statusline+=\ [0x%02B]              " byte value of char. under cursor
 set statusline+=\ %3p%%\                " percentage
 
 set shortmess+=c
