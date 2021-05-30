@@ -26,9 +26,9 @@ nmap <buffer> <silent> gl :<c-u>let &l:fdl=foldlevel(OutlawTopicLine())<cr>
 " 'Body text mode'
 nmap <buffer> <silent> gy :<c-u>let b:outlaw_note_fold_level=b:outlaw_note_fold_level=='='?20:'='<cr>zx
 " 'Previous topic'
-nmap <buffer> <silent> <C-p> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW')<cr>zv
+"nmap <buffer> <silent> <C-p> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW')<cr>zv
 " 'Next topic'
-nmap <buffer> <silent> <C-n> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
+"nmap <buffer> <silent> <C-n> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
 " 'Parent'
 nmap <buffer> <silent> _ :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('b')<cr>zv
 " 'Uncle'
