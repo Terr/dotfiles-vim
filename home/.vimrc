@@ -16,8 +16,10 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'optroot/auto-pairs'
 "" vim-surround
 Plug 'tpope/vim-surround'
-"" newrw improvements
+"" netrw improvements
 Plug 'tpope/vim-vinegar'
+"" File tree viewer
+Plug 'lambdalisue/fern.vim'
 "" Various mappings, such as line bubbling, URL encoding, etc.
 Plug 'tpope/vim-unimpaired'
 "" UNIX shell commands in Vim (move, mkdir, chmod etc)
@@ -438,6 +440,9 @@ let g:gutentags_ctags_extra_args = [
 
 "" Tagbar
 nmap <F8> :TagbarOpen fj<CR>
+
+"" fern.vim
+nmap <F7> :Fern . -reveal=% -drawer -width=40<CR>
 
 "" vim-outlaw
 """ Custom keybinds are set in after/ftplugin/outlaw.vim
