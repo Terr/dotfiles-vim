@@ -42,6 +42,8 @@ Plug 'markkimsal/vdebug'
 Plug 'preservim/tagbar'
 " Align text in table format
 Plug 'godlygeek/tabular'
+"" Wiki
+Plug 'lervag/wiki.vim'
 "" Notes
 Plug 'Terr/vim-outlaw', { 'branch': 'indent-based-text-width' }
 "" Better Python indentation
@@ -444,6 +446,13 @@ nmap <F8> :TagbarOpen fj<CR>
 
 "" fern.vim
 nmap <F7> :Fern . -reveal=% -drawer -width=40<CR>
+
+"" wiki.vim
+let g:wiki_root = '~/IX/wiki'
+let g:wiki_link_target_type = 'md'
+let g:wiki_link_extension = '.outl'
+let g:wiki_global_load = 0
+let g:wiki_filetypes = ["outl", "wiki"]
 
 "" vim-outlaw
 """ Custom keybinds are set in after/ftplugin/outlaw.vim
