@@ -37,12 +37,12 @@ nmap <buffer> <silent> + :<c-u>call OutlawAutoClose()<cr>:call OutlawUp('')<cr>z
 nmap <buffer> <silent> <Up> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('besW')<cr>zv
 " 'Next topic'
 nmap <buffer> <silent> <Down> :<c-u>call OutlawAutoClose()<cr>:call OutlawTopicJump('esW')<cr>zv
-" 'Add sibling below'
-nmap <buffer> <silent> <cr> :<c-u>call OutlawAddSibling(1)<cr>
 " 'Add sibling above'
 nmap <buffer> <silent> <c-k> :<c-u>call OutlawAddSibling(0)<cr>
+" 'Add sibling below'
+nmap <buffer> <silent> <c-j> :<c-u>call OutlawAddSibling(1)<cr>
 " 'Add child'
-nmap <buffer> <silent> <c-j> :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
+nmap <buffer> <silent> <c-l> :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
 " 'Toggle auto-close'
 nmap <buffer> <silent> gA :<c-u>call OutlawAddSibling(1)<cr><c-t><c-o>zv
 vmap <buffer> <silent> gq :call OutlawFormat()<cr>
