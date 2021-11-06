@@ -335,7 +335,13 @@ let g:ale_rust_cargo_check_tests = 1
 
 "" coc.nvim
 """ Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-space> coc#refresh()
+"""" Also bind it to Ctrl-@ for Alacritty, since for some reason it doesn't
+"""" trigger there even though it does seem to pass the correct character to
+"""" the terminal (0x00). See:
+"""" * https://github.com/neoclide/coc.nvim/issues/2718#issuecomment-791436930
+"""" * https://github.com/alacritty/alacritty/issues/4575#issuecomment-770359544
+inoremap <silent><expr> <c-@> coc#refresh()
 
 """ Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 """ Coc only does snippet and additional edit on confirm.
