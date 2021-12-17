@@ -233,7 +233,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " Remove trailing whitespace on save
-autocmd FileType c,cpp,java,rust,php,python,javascript,html,ruby,yaml autocmd BufWritePre <buffer> :keepjumps call setline(1,map(getline(1 ,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType c,cpp,java,php,python,javascript,html,ruby,yaml autocmd BufWritePre <buffer> :keepjumps call setline(1,map(getline(1 ,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " Plugin related settings
 
@@ -320,18 +320,13 @@ let g:ale_sign_style_error = '}}'
 let g:ale_linters_explicit = 1
 let g:ale_linters = {
     \ 'php': ['phpmd'],
-    \ 'rust': [],
     \ 'cpp': [],
 \ }
 let g:ale_fixers = {
-    \ 'rust': ['rustfmt'],
     \ 'typescript': ['tslint']
 \ }
 """ Language specific settings
 let g:ale_php_phpmd_ruleset = 'unusedcode'
-let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_rust_cargo_use_clippy = 1
-let g:ale_rust_cargo_check_tests = 1
 
 "" coc.nvim
 """ Use <c-space> to trigger completion.
@@ -448,6 +443,9 @@ nmap <F8> :TagbarOpen fj<CR>
 "" vim-outlaw
 """ Custom keybinds are set in after/ftplugin/outlaw.vim
 let g:no_outlaw_maps = 1
+
+"" rust.vim
+let g:rustfmt_autosave = 1
 
 "" vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
