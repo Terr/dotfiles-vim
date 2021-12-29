@@ -1,4 +1,6 @@
 setlocal textwidth=119
+" Do not auto-wrap text using textwidth
+setlocal formatoptions-=t
 
 " Format file on save
 function! s:outlaw_format()
