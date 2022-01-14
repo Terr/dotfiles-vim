@@ -19,7 +19,7 @@ RLS = ${HOME}/.rustup/toolchains/nightly*/bin/rls
 RUST_FMT = ${HOME}/.rustup/toolchains/*/bin/cargo-fmt
 RUST_CLIPPY = ${HOME}/.rustup/toolchains/*/bin/cargo-clippy
 VIM = /usr/local/bin/vim
-VIM_VERSION ?= 8.2.2035
+VIM_VERSION ?= 8.2.3817
 
 all: vim ctags rust
 rust: rls rust_fmt rust_clippy
@@ -55,7 +55,7 @@ else
 		--with-x 
 	cd src
 	make -j${NPROC}
-	sudo make install
+	sudo make install || su -c 'make install'
 	cd /
 	rm -r "${TMPDIR}"
 endif
