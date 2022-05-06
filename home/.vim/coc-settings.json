@@ -20,7 +20,7 @@
         "python": {
             "command": "pyls",
             "filetypes": ["python"],
-            "rootPatterns": [".git/", ".hg/", "setup.py", "main.py"],
+            "rootPatterns": [".git/", ".hg/", "setup.py", "main.py", "pyproject.toml"],
             "args": ["--verbose", "--log-file /tmp/pyls.log"]
         }
     },
