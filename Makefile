@@ -19,7 +19,7 @@ RLS = ${HOME}/.rustup/toolchains/nightly*/bin/rls
 RUST_FMT = ${HOME}/.rustup/toolchains/*/bin/cargo-fmt
 RUST_CLIPPY = ${HOME}/.rustup/toolchains/*/bin/cargo-clippy
 VIM = /usr/local/bin/vim
-VIM_VERSION ?= 8.2.3817
+VIM_VERSION ?= 9.0.0014
 
 all: vim ctags rust
 rust: rls rust_fmt rust_clippy
