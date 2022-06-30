@@ -62,6 +62,7 @@ else
 	rm -r "${TMPDIR}"
 endif
 
+.PHONY:
 vim-dependencies:
 	apt install -y \
 		libncursesw5-dev \
