@@ -55,7 +55,9 @@ else
 		--with-x 
 	cd src
 	make -j${NPROC}
+	set -x
 	sudo make install || su -c 'make install'
+	set +x
 	cd /
 	rm -r "${TMPDIR}"
 endif
