@@ -34,8 +34,6 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "" Automatically builds tag files
 Plug 'ludovicchabant/vim-gutentags'
-"" Snippets
-Plug 'SirVer/ultisnips'
 "" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug'
 "" (c)tags navigation within file
