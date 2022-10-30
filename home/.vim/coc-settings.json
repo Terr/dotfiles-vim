@@ -25,5 +25,6 @@
         }
     },
 
-    "rust.clippy_preference": "on"
+
+    "coc.preferences.formatOnSaveFiletypes": ["rust"]
 }

@@ -445,7 +445,7 @@ nmap <F8> :TagbarOpen fj<CR>
 let g:no_outlaw_maps = 1
 
 "" rust.vim
-let g:rustfmt_autosave = 1
+let g:rustfmt_autosave = 0
 
 "" vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
