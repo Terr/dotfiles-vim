@@ -19,7 +19,7 @@ Plug 'tpope/vim-surround'
 "" netrw improvements
 Plug 'tpope/vim-vinegar'
 "" File tree viewer
-Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/fern.vim', { 'branch': 'main' }
 "" Various mappings, such as line bubbling, URL encoding, etc.
 Plug 'tpope/vim-unimpaired'
 "" UNIX shell commands in Vim (move, mkdir, chmod etc)
