@@ -30,8 +30,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-dispatch'
 "" Line/block comments
 Plug 'scrooloose/nerdcommenter'
-"" Asynchronous linting
-Plug 'dense-analysis/ale'
 "" Language server client
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "" Automatically builds tag files
@@ -311,24 +309,6 @@ let g:AutoPairsOnlyBeforeClose = 1
 
 "" vim-go
 let g:go_template_autocreate = 0
-
-"" ALE
-let g:ale_completion_enabled = 0
-let g:ale_lint_delay = 125
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_fix_on_save = 1
-let g:ale_sign_info = '^^'
-let g:ale_sign_style_error = '}}'
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-    \ 'php': ['phpmd'],
-    \ 'cpp': [],
-\ }
-let g:ale_fixers = {
-    \ 'typescript': ['tslint']
-\ }
-""" Language specific settings
-let g:ale_php_phpmd_ruleset = 'unusedcode'
 
 "" coc.nvim
 """ Use <c-space> to trigger completion.
