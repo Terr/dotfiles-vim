@@ -23,6 +23,9 @@ vmap  <Plug>NERDCommenterToggle
 setlocal comments-=fb:*
 setlocal comments+=b:*
 
+" Disable auto-pairs as Outlaw documents are not about typing code
+let b:autopairs_enabled=0
+
 " 'This fold level'
 nnoremap <buffer> <silent> gl :<c-u>let &l:fdl=foldlevel(OutlawTopicLine())<cr>
 " 'Body text mode'
