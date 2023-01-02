@@ -15,10 +15,6 @@ endfunction
 autocmd! BufWritePre <buffer> :call s:outlaw_format()
 
 setlocal commentstring=\|\ %s
-" Remap comment shortcuts to not do a <CR> after commenting,
-" since <CR> has a special meaning in Outlaw files
-nmap  <Plug>NERDCommenterToggle
-vmap  <Plug>NERDCommenterToggle
 " Continue * lists on newline
 setlocal comments-=fb:*
 setlocal comments+=b:*
