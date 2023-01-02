@@ -22,6 +22,8 @@ vmap  <Plug>NERDCommenterToggle
 " Continue * lists on newline
 setlocal comments-=fb:*
 setlocal comments+=b:*
+" Continue to-do lists on newline
+setlocal comments+=b:[\ ]
 
 " Disable auto-pairs as Outlaw documents are not about typing code
 let b:autopairs_enabled=0
