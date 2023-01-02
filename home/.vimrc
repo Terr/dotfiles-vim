@@ -437,6 +437,7 @@ let g:wiki_filetypes = ["outl", "wiki"]
 "" vim-outlaw
 """ Custom keybinds are set in after/ftplugin/outlaw.vim
 let g:no_outlaw_maps = 1
+"let g:outlaw_fenced_filetypes = ['python', 'rust', 'sql']
 
 "" rust.vim
 let g:rustfmt_autosave = 0
