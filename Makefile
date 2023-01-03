@@ -15,13 +15,16 @@ ifeq ($(OS), Linux)
 	IS_LINUX = 1
 endif
 
+PIP = pip3
+PYLS = ${HOME}/.local/bin/pyls
 RLS = ${HOME}/.rustup/toolchains/nightly*/bin/rls
 RUST_FMT = ${HOME}/.rustup/toolchains/*/bin/cargo-fmt
 RUST_CLIPPY = ${HOME}/.rustup/toolchains/*/bin/cargo-clippy
 VIM = /usr/local/bin/vim
 VIM_VERSION ?= 9.0.0014
 
-all: vim ctags rust
+all: vim ctags python rust
+python: pyls
 rust: rls rust_fmt rust_clippy
 
 .PHONY: vim
@@ -70,6 +73,11 @@ vim-dependencies:
 		libx11-dev \
 		libxt-dev \
 		python3-distutils
+
+# Python language server
+pyls: $(PYLS)
+$(PYLS):
+	${PIP} install --user python-language-server
 
 # Rust language server
 rls: $(RLS)
