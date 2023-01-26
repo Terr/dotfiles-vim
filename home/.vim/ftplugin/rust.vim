@@ -1,6 +1,6 @@
 compiler rustc
 
-set makeprg=cd\ %:h\ &&\ cargo\ build
+setlocal makeprg=cd\ %:h\ &&\ cargo\ build
 let $RUST_BACKTRACE = 1
 let b:start='-wait=always -dir=%:h cargo run'
 
