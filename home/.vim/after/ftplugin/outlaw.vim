@@ -1,4 +1,4 @@
-setlocal textwidth=119
+setlocal textwidth=0
 " Do not auto-wrap text using textwidth
 setlocal formatoptions-=t
 
