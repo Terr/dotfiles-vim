@@ -56,6 +56,8 @@ Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 "" Improved C++ syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+"" Vimscript testing framework
+Plug 'junegunn/vader.vim', { 'for': 'vim' }
 call plug#end()
 
 " Setup for tmux environments
