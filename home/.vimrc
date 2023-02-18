@@ -430,7 +430,8 @@ nmap <F8> :TagbarOpen fj<CR>
 nmap <F7> :Fern . -reveal=% -drawer -width=40<CR>
 
 "" wiki.vim
-let g:wiki_root = '~/IX/wiki'
+let g:wiki_root = '~/IX'
+let g:wiki_cache_root = '~/.cache/wiki.vim'
 let g:wiki_link_target_type = 'md'
 let g:wiki_link_extension = '.outl'
 let g:wiki_global_load = 0
