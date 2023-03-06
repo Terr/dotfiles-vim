@@ -1,6 +1,10 @@
 {
     "diagnostic.checkCurrentLine": true,
-    "diagnostic.messageTarget": "echo",
+    "diagnostic.messageTarget": "float",
+    "diagnostic.messageDelay": 500,
+    "diagnostic.virtualText": false,
+    "diagnostic.virtualTextCurrentLineOnly": false,
+
     "languageserver": {
         "cpp": {
             "command": "ccls",
