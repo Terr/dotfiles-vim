@@ -13,6 +13,12 @@
             "args": [],
             "initializationOptions": {}
         },
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+            "filetypes": ["haskell", "lhaskell"]
+        },
         "golang": {
             "command": "gopls",
             "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
@@ -20,15 +26,21 @@
             "initializationOptions": {
                 "usePlaceholders": true
             }
-        },
-        "python": {
-            "command": "pyls",
-            "filetypes": ["python"],
-            "rootPatterns": [".git/", ".hg/", "setup.py", "main.py", "pyproject.toml"],
-            "args": ["--verbose", "--log-file /tmp/pyls.log"]
         }
     },
 
+    "codeLens.enable": false,
 
-    "coc.preferences.formatOnSaveFiletypes": ["rust"]
+    "signature.preferShownAbove": false,
+
+    "elixir.pathToElixirLS": "/usr/local/bin/elixir-ls",
+
+    "python.pythonPath": "python3",
+    "python.formatting.provider": "black",
+
+    "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "elixir", "haskell"],
+
+    "inlayHint.refreshOnInsertMode": true,
+
+    "rust.clippy_preference": "on"
 }
