@@ -243,14 +243,15 @@ autocmd FileType c,cpp,java,php,python,javascript,html,ruby,yaml autocmd BufWrit
 let g:fzf_history_dir='~/.local/share/fzf-history'
 let g:fzf_layout = { 'down': '~40%' }
 "command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
-nnoremap ` :FZF<CR>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>l :Lines<CR>
-nnoremap <Leader>w :Windows<CR>
-nnoremap <C-B> :BLines<CR>
-nnoremap <Leader>t :Tags<CR>
-nnoremap <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
-vnoremap <F3> :<C-u>Rg <C-r>*<CR>
+nnoremap <silent> ` :FZF<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>l :Lines<CR>
+nnoremap <silent> <Leader>w :Windows<CR>
+nnoremap <silent> <C-B> :BLines<CR>
+nnoremap <silent> <Leader>t :Tags<CR>
+nnoremap <silent> <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
+vnoremap <silent> <F3> :<C-u>Rg <C-r>*<CR>
+
 """ Add function & keybind for building a quickfix list out of the search results. Use with <C-A> <C-Q>
 """" An action can be a reference to a function that processes selected lines.
 function! s:build_quickfix_list(lines)
