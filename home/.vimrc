@@ -252,6 +252,19 @@ nnoremap <silent> <Leader>t :Tags<CR>
 nnoremap <silent> <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
 vnoremap <silent> <F3> :<C-u>Rg <C-r>*<CR>
 
+if executable('spacegrep')
+    command! -bang -nargs=* Sg call fzf#run(fzf#wrap(
+        \ {
+            \ 'source': 'spacegrep --color=always -d . '.shellescape(<q-args>).' 2>/dev/null|grep -v -E "^$"|sed -E "s/:\s+/: /"',
+            \ 'dir': getcwd(),
+            \ 'sink': function('EditFile'),
+            \ 'options': ['--ansi', '--delimiter=:', '--nth', '2..', '--tiebreak=index', '--multi', '--prompt', 'Spacegrep> ']
+        \ },
+        \ <bang>0,
+    \ ))
+    nnoremap <C-G> :Sg
+endif
+
 """ Add function & keybind for building a quickfix list out of the search results. Use with <C-A> <C-Q>
 """" An action can be a reference to a function that processes selected lines.
 function! s:build_quickfix_list(lines)
