@@ -174,7 +174,7 @@ set wildignore+=*/.cache/*,*/cache/*
 " Line numbering
 set number
 set relativenumber
-set signcolumn=yes
+set signcolumn=number
 
 " Scroll settings
 set ruler
