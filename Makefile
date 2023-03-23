@@ -74,6 +74,10 @@ vim-dependencies:
 		libxt-dev \
 		python3-distutils
 
+.PHONY:
+latest-vim-version:
+	curl --silent https://api.github.com/repos/vim/vim/tags|jq '.[0]["name"]'|sed --regexp-extended 's/"v([^"]+)"/\1/g'
+
 # Python language server
 pyls: $(PYLS)
 $(PYLS):
