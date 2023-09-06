@@ -24,6 +24,13 @@ setlocal comments+=b:[\ ]
 " Disable auto-pairs as Outlaw documents are not about typing code
 let b:autopairs_enabled=0
 
+" Shortcuts for adjusting indenting, mostly meant for when working with
+" multi-level bullet lists
+nnoremap <buffer> <silent> <Tab> >>
+nnoremap <buffer> <silent> <S-Tab> <<
+inoremap <buffer> <silent> <Tab> <Esc>>>A
+inoremap <buffer> <silent> <S-Tab> <Esc><<A
+
 " 'This fold level'
 nnoremap <buffer> <silent> gl :<c-u>let &l:fdl=foldlevel(OutlawTopicLine())<cr>
 " 'Body text mode'
