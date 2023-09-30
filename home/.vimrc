@@ -3,6 +3,9 @@ set nocompatible
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+" Default to UTF-8 text encoding
+set encoding=utf-8
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 "" Fuzzy file finder
@@ -144,7 +147,6 @@ colorscheme solarized8_custom
 " Backup settings
 set nobackup
 set nowritebackup
-set nowb
 set noswapfile
 set updatetime=300  " Also used for the CursorHold event
 
@@ -229,10 +231,6 @@ vmap <Leader>y "+y
 " Paste selection from xclipboard
 map <Leader>p "+p
 map <Leader>P "+P
-
-" Default to UTF-8 text encoding
-set encoding=utf-8
-set fileencoding=utf-8
 
 " Remove trailing whitespace on save
 autocmd FileType c,cpp,java,php,python,javascript,html,ruby,yaml autocmd BufWritePre <buffer> :keepjumps call setline(1,map(getline(1 ,"$"),'substitute(v:val,"\\s\\+$","","")'))
@@ -337,9 +335,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <c-@> coc#refresh()
 
 """ Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-""" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 """ Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
@@ -347,9 +344,6 @@ inoremap <silent><expr> <TAB>
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
