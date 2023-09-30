@@ -1,9 +1,17 @@
 {
+    "codeLens.enable": false,
+
     "diagnostic.checkCurrentLine": true,
     "diagnostic.messageTarget": "float",
     "diagnostic.messageDelay": 500,
     "diagnostic.virtualText": false,
     "diagnostic.virtualTextCurrentLineOnly": false,
+
+    "inlayHint.refreshOnInsertMode": true,
+
+    "signature.preferShownAbove": false,
+
+    "suggest.insertMode": "insert",
 
     "languageserver": {
         "cpp": {
@@ -21,18 +29,12 @@
         }
     },
 
-    "codeLens.enable": false,
-
-    "signature.preferShownAbove": false,
+    "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "elixir", "haskell"],
 
     "elixir.pathToElixirLS": "/usr/local/bin/elixir-ls",
 
     "python.pythonPath": "python3",
     "python.formatting.provider": "black",
-
-    "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "elixir", "haskell"],
-
-    "inlayHint.refreshOnInsertMode": true,
 
     "rust.clippy_preference": "on"
 }
