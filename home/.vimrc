@@ -233,7 +233,13 @@ map <Leader>p "+p
 map <Leader>P "+P
 
 " Remove trailing whitespace on save
-autocmd FileType c,cpp,java,php,python,javascript,html,ruby,yaml autocmd BufWritePre <buffer> :keepjumps call setline(1,map(getline(1 ,"$"),'substitute(v:val,"\\s\\+$","","")'))
+function! <SID>StripTrailingWhitespace()
+    let l:current_cursor_pos = getpos(".")
+    keeppatterns %s/\s\+$//e
+    call setpos('.', l:current_cursor_pos)
+endfunction
+
+autocmd FileType c,cpp,java,php,python,javascript,html,ruby,yaml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
 
 " Plugin related settings
 
