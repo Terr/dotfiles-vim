@@ -96,7 +96,7 @@ set expandtab
 set fo-=t  " don't automatically wrap text when typing
 
 " Indenting
-filetype indent plugin on
+filetype plugin indent on
 set smartindent
 set autoindent
 set shiftround
