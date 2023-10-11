@@ -46,6 +46,7 @@ else
 	cd vim-"${VIM_VERSION}"
 
 	CFLAGS=-O3 ./configure \
+		--disable-canberra \
 		--disable-darwin \
 		--disable-gpm \
 		--disable-netbeans \
