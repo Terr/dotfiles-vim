@@ -12,6 +12,7 @@
     "signature.preferShownAbove": false,
 
     "suggest.insertMode": "insert",
+    "suggest.noselect": true,
 
     "languageserver": {
         "cpp": {
