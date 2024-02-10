@@ -93,7 +93,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-set fo-=t  " don't automatically wrap text when typing
+set formatoptions-=t  " don't automatically wrap text when typing
 
 " Indenting
 filetype plugin indent on
