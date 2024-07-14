@@ -125,6 +125,7 @@ set statusline+=\ %f                    " relative file path
 set statusline+=\ %y                    " file type
 set statusline+=%r                      " readonly flag
 set statusline+=%m                      " modified [+] flag
+set statusline+=%{tagbar#currenttag('[%s]\ ','')}  " show current ctag
 set statusline+=%=                      " right align
 set statusline+=%#StatusLineNC#         " colour
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
