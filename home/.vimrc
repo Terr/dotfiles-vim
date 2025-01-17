@@ -439,10 +439,10 @@ let g:gutentags_ctags_extra_args = [
 \ ]
 
 "" Tagbar
-nmap <F8> :TagbarOpen fj<CR>
+nmap <silent> <F8> :TagbarOpen fjc<CR>
 
 "" fern.vim
-nmap <F7> :Fern . -reveal=% -drawer -width=40<CR>
+nmap <silent> <F7> :Fern . -reveal=% -drawer -width=40<CR>
 
 "" wiki.vim
 let g:wiki_root = '~/IX'
