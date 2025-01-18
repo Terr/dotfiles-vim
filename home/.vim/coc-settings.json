@@ -36,7 +36,7 @@
     "elixir.pathToElixirLS": "/usr/local/bin/elixir-ls",
 
     "python.pythonPath": "python3",
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "ruff",
 
     "rust.clippy_preference": "on"
 }
