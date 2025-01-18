@@ -11,8 +11,9 @@
 
     "signature.preferShownAbove": false,
 
-    "suggest.insertMode": "insert",
+    "suggest.insertMode": "replace",
     "suggest.noselect": true,
+    "suggest.autoTrigger": "always",
 
     "languageserver": {
         "cpp": {
