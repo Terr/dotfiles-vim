@@ -16,7 +16,7 @@ Plug 'christoomey/vim-tmux-navigator'
 "" Solarized color scheme
 Plug 'lifepillar/vim-solarized8'
 "" Auto-close brackets/quotes/etc.
-Plug 'optroot/auto-pairs'
+Plug 'LunarWatcher/auto-pairs'
 "" vim-surround
 Plug 'tpope/vim-surround'
 "" netrw improvements
@@ -322,11 +322,11 @@ nnoremap <silent> <C-Right> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-BS> :TmuxNavigatePrevious<cr>
 
 "" auto-pairs
-""" Extra settings added in 'optroot' fork
+let g:AutoPairsPrefix = "<C-i>"
 let g:AutoPairsMultilineClose = 0
-let g:AutoPairsBalanceImmediately = 1
-let g:AutoPairsNeverJumpLines = 1
-let g:AutoPairsOnlyBeforeClose = 1
+let g:AutoPairsShortcutFastWrap = "<C-e>"
+""" Disabled for now: let's see if I can adjust to "fast wrapping"
+" let g:AutoPairsCompleteOnlyOnSpace = 1
 
 "" vim-go
 let g:go_template_autocreate = 0
