@@ -1,0 +1,18 @@
+version: 2
+root-markers:
+  - .git/
+  - .hg/
+lint-debounce: 1s
+
+tools:
+  python-ruff: &python-ruff
+    lint-command: "ruff check --stdin-filename ${INPUT} --output-format concise --quiet -"
+    lint-stdin: true
+    lint-formats:
+      - "%f:%l:%c: %m"
+    format-command: "ruff format --stdin-filename ${INPUT} --quiet -"
+    format-stdin: true
+
+languages:
+  python:
+    - <<: *python-ruff

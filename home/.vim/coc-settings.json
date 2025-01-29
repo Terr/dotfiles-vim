@@ -23,6 +23,16 @@
             "args": [],
             "initializationOptions": {}
         },
+        "linting": {
+            "command": "efm-langserver",
+            "args": [],
+            "filetypes": ["python"]
+        },
+        "python": {
+            "command": "basedpyright-langserver",
+            "args": ["--stdio"],
+            "filetypes": ["python"]
+        },
         "haskell": {
             "command": "haskell-language-server-wrapper",
             "args": ["--lsp"],
@@ -34,9 +44,6 @@
     "coc.preferences.formatOnSaveFiletypes": ["python", "rust", "elixir", "haskell"],
 
     "elixir.pathToElixirLS": "/usr/local/bin/elixir-ls",
-
-    "python.pythonPath": "python3",
-    "python.formatting.provider": "ruff",
 
     "rust.clippy_preference": "on"
 }
