@@ -231,6 +231,12 @@ vmap <Leader>y "+y
 map <Leader>p "+p
 map <Leader>P "+P
 
+" Open a new tmux pane that starts in the directory of the current file
+"" Horizontal pane
+nnoremap <silent> <Leader>S :call system('tmux split-window -h -c "%:h" &')<CR>
+"" Vertical pane
+nnoremap <silent> <Leader>V :call system('tmux split-window -v -c "%:h" &')<CR>
+
 " Remove trailing whitespace on save
 function! <SID>StripTrailingWhitespace()
     let l:current_cursor_pos = getpos(".")
