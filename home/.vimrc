@@ -35,8 +35,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdcommenter'
 "" Language server client
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"" Automatically builds tag files
-Plug 'ludovicchabant/vim-gutentags'
 "" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug'
 "" (c)tags navigation within file
@@ -426,17 +424,6 @@ let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsListSnippets  = "<C-Tab>"
 "let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 "let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
-
-"" Gutentags
-let g:gutentags_cache_dir = "~/.tags"
-let g:gutentags_generate_on_missing = 0
-let g:gutentags_generate_on_new = 0
-let g:gutentags_file_list_command = "fd --no-ignore"
-""" Ignore PHP 'use' aliases when building tags
-let g:gutentags_ctags_extra_args = [
-    \ "--kinds-PHP=-a",
-    \ "--languages=-CSS,JSON"
-\ ]
 
 "" Tagbar
 nmap <silent> <F8> :TagbarOpen fjc<CR>
