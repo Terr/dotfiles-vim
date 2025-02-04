@@ -23,6 +23,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-vinegar'
 "" File tree viewer
 Plug 'lambdalisue/fern.vim', { 'branch': 'main' }
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/vim-fern-renderer-nerdfont'
 "" Various mappings, such as line bubbling, URL encoding, etc.
 Plug 'tpope/vim-unimpaired'
 "" UNIX shell commands in Vim (move, mkdir, chmod etc)
@@ -425,7 +427,57 @@ let g:UltiSnipsListSnippets  = "<C-Tab>"
 nmap <silent> <F8> :TagbarOpen fjc<CR>
 
 "" fern.vim
-nmap <silent> <F7> :Fern . -reveal=% -drawer -width=40<CR>
+let g:fern#renderer = "nerdfont"
+
+function! s:init_fern() abort
+    nnoremap <Plug>(fern-close-drawer) :<C-u>FernDo close -drawer -stay<CR>
+    " Close the drawer after opening a file
+    nmap <buffer> <silent> <Plug>(fern-custom-open-and-close)
+                \ <Plug>(fern-action-open)
+                \ <Plug>(fern-close-drawer)
+
+    nmap <buffer> <silent> <expr>
+                \ <Plug>(fern-custom-open-close-expand-collapse)
+                \ fern#smart#leaf(
+                \   "\<Plug>(fern-custom-open-and-close)",
+                \   "\<Plug>(fern-action-expand)",
+                \   "\<Plug>(fern-action-collapse)",
+                \ )
+
+    nmap <buffer> <silent> <expr>
+                \ <Plug>(fern-custom-open-expand-collapse)
+                \ fern#smart#leaf(
+                \   "\<Plug>(fern-action-open)",
+                \   "\<Plug>(fern-action-expand)",
+                \   "\<Plug>(fern-action-collapse)",
+                \ )
+
+    nmap <buffer> <silent> <Right> <Plug>(fern-action-expand)
+    nmap <buffer> <silent> <Left> <Plug>(fern-action-collapse)
+    " Open the selected file and close the drawer, or expand/collapse the
+    " selected directory
+    nmap <buffer> <silent> <C-m> <Plug>(fern-custom-open-close-expand-collapse)
+    " Open the file without closing the drawer
+    nmap <buffer> <silent> o <Plug>(fern-custom-open-expand-collapse)
+    nmap <buffer> <silent> s <Plug>(fern-action-open:split)
+    nmap <buffer> <silent> v <Plug>(fern-action-open:vsplit)
+    " Create new file
+    nmap <buffer> <silent> N <Plug>(fern-action-new-path=)
+    nmap <buffer> <silent> R <Plug>(fern-action-rename:bottom)
+    nmap <buffer> <silent> <F5> <Plug>(fern-action-reload)
+    " Open in a background tab
+    nmap <buffer> <silent> T <Plug>(fern-action-open:tab)gT
+    nmap <buffer> <silent> X <Plug>(fern-action-open:system)
+    nmap <buffer> <silent> <F7> :<C-u>quit<CR>
+    nmap <buffer> <silent> q :<C-u>quit<CR>
+endfunction
+
+augroup fern-custom
+    autocmd! *
+    autocmd FileType fern call s:init_fern()
+augroup END
+
+nnoremap <silent> <F7> :Fern . -reveal=% -drawer -width=40<CR>
 
 "" vim-outlaw
 """ Custom keybinds are set in after/ftplugin/outlaw.vim
