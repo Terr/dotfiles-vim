@@ -238,7 +238,7 @@ function! <SID>StripTrailingWhitespace()
     call setpos('.', l:current_cursor_pos)
 endfunction
 
-autocmd FileType c,cpp,java,php,python,javascript,html,ruby,yaml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
+autocmd FileType c,cpp,go,html,java,javascript,lua,php,python,ruby,yaml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
 
 " Plugin related settings
 
