@@ -320,11 +320,9 @@ nnoremap <silent> <C-Right> :TmuxNavigateRight<cr>
 nnoremap <silent> <C-BS> :TmuxNavigatePrevious<cr>
 
 "" auto-pairs
-let g:AutoPairsPrefix = "<C-i>"
+let g:AutoPairsPrefix = "<C-e>"
 let g:AutoPairsMultilineClose = 0
-let g:AutoPairsShortcutFastWrap = "<C-e>"
-""" Disabled for now: let's see if I can adjust to "fast wrapping"
-" let g:AutoPairsCompleteOnlyOnSpace = 1
+let g:AutoPairsCompleteOnlyOnSpace = 1
 
 "" vim-go
 let g:go_template_autocreate = 0
