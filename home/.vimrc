@@ -233,9 +233,9 @@ map <Leader>P "+P
 
 " Open a new tmux pane that starts in the directory of the current file
 "" Horizontal pane
-nnoremap <silent> <Leader>S :call system('tmux split-window -h -c "%:h" &')<CR>
+nnoremap <silent> <Leader>S :call system('tmux split-window -h -c "'.expand('%:p:h').'" &')<CR>
 "" Vertical pane
-nnoremap <silent> <Leader>V :call system('tmux split-window -v -c "%:h" &')<CR>
+nnoremap <silent> <Leader>V :call system('tmux split-window -v -c "'.expand('%:p:h').'" &')<CR>
 
 " Remove trailing whitespace on save
 function! <SID>StripTrailingWhitespace()
