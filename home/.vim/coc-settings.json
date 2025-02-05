@@ -28,11 +28,6 @@
             "args": [],
             "filetypes": ["python"]
         },
-        "python": {
-            "command": "basedpyright-langserver",
-            "args": ["--stdio"],
-            "filetypes": ["python"]
-        },
         "haskell": {
             "command": "haskell-language-server-wrapper",
             "args": ["--lsp"],

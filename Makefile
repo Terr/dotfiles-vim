@@ -1,6 +1,5 @@
 SHELL := bash
-.ONESHELL:
-.SHELLFLAGS := -eu -o pipefail -c
+SHELLFLAGS := -eu -o pipefail -c
 MAKEFLAGS += --no-builtin-rules
 
 NPROC ?= $(shell nproc --all)
@@ -15,19 +14,16 @@ ifeq ($(OS), Linux)
 	IS_LINUX = 1
 endif
 
-PIP = pip3
-PYLS = ${HOME}/.local/bin/pyls
-RLS = ${HOME}/.rustup/toolchains/nightly*/bin/rls
-RUST_FMT = ${HOME}/.rustup/toolchains/*/bin/cargo-fmt
-RUST_CLIPPY = ${HOME}/.rustup/toolchains/*/bin/cargo-clippy
-VIM = /usr/local/bin/vim
-VIM_VERSION ?= 9.1.1033
+COC_EXTENSIONS_DIR := $(HOME)/.config/coc/extensions
+PYTHON3 := /usr/bin/python3
+VIM := /usr/local/bin/vim
+VIM_VERSION ?= 9.1.1076
 
-all: vim ctags python rust
-python: pyls
-rust: rls rust_fmt rust_clippy
+all: vim vim-plugins coc-extensions
 
-.PHONY: vim
+.PHONY: vim coc-extensions latest-vim-version
+
+.ONESHELL:
 vim:
 ifeq ($(IS_MACOS), 1)
 	brew upgrade vim || brew install vim
@@ -55,7 +51,7 @@ else
 		--enable-python3interp=yes \
 		--enable-terminal \
 		--with-compiledby='T E R R' \
-		--with-python3-command=/usr/bin/python3 \
+		--with-python3-command=${PYTHON3} \
 		--with-x 
 	cd src
 	make -j${NPROC}
@@ -66,41 +62,19 @@ else
 	rm -r "${TMPDIR}"
 endif
 
-.PHONY:
-vim-dependencies:
-	apt install -y \
-		libncursesw5-dev \
-		libpython3-dev \
-		libx11-dev \
-		libxt-dev \
-		python3-distutils
-
-.PHONY:
+.SILENT:
 latest-vim-version:
 	curl --silent https://api.github.com/repos/vim/vim/tags|jq '.[0]["name"]'|sed --regexp-extended 's/"v([^"]+)"/\1/g'
 
-# Python language server
-pyls: $(PYLS)
-$(PYLS):
-	${PIP} install --user python-language-server
+vim-plugins:
+	vim +PlugInstall +PlugUpdate +qa
 
-# Rust language server
-rls: $(RLS)
-$(RLS):
-	rustup component add rls-preview rust-analysis rust-src --toolchain nightly
+coc-extensions: coc-basedpyright coc-rust-analyzer
 
-rust_fmt: $(RUST_FMT)
-$(RUST_FMT):
-	rustup component add rustfmt-preview
+coc-basedpyright: $(COC_EXTENSIONS_DIR)/node_modules/coc-basedpyright/package.json
+$(COC_EXTENSIONS_DIR)/node_modules/coc-basedpyright/package.json:
+	vim +"CocInstall -sync coc-basedpyright" +qa
 
-rust_clippy: $(RUST_CLIPPY)
-$(RUST_CLIPPY):
-	rustup component add clippy-preview
-
-ctags:
-ifeq ($(IS_MACOS), 1)
-	# Universal ctags
-	brew install --HEAD universal-ctags 
-	# GNU Global
-	brew install global
-endif
+coc-rust-analyzer: $(COC_EXTENSIONS_DIR)/node_modules/coc-rust-analyzer/package.json
+$(COC_EXTENSIONS_DIR)/node_modules/coc-rust-analyzer/package.json:
+	vim +"CocInstall -sync coc-rust-analyzer" +qa

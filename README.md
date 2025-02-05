@@ -1,7 +1,7 @@
 # Installation steps
 
-1. `make vim` (or `VIM_VERSION=9.1.xxxx make vim`)
-2. `vim +PlugInstall +qa`
+1. `make vim` (or `VIM_VERSION=$(make latest-vim-version) make vim`)
+2. `make vim-plugins coc-extensions`
 
 # Language servers
 
