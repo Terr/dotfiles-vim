@@ -232,10 +232,10 @@ map <Leader>p "+p
 map <Leader>P "+P
 
 " Open a new tmux pane that starts in the directory of the current file
-"" Horizontal pane
-nnoremap <silent> <Leader>S :call system('tmux split-window -h -c "'.expand('%:p:h').'" &')<CR>
-"" Vertical pane
-nnoremap <silent> <Leader>V :call system('tmux split-window -v -c "'.expand('%:p:h').'" &')<CR>
+"" A horizontal pane in tmux is what we call a vertical split in vim
+nnoremap <silent> <Leader>gv :call system('tmux split-window -h -c "'.expand('%:p:h').'" &')<CR>
+"" Vertical pane in tmux
+nnoremap <silent> <Leader>gs :call system('tmux split-window -v -c "'.expand('%:p:h').'" &')<CR>
 
 " Remove trailing whitespace on save
 function! <SID>StripTrailingWhitespace()
