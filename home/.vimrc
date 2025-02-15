@@ -37,6 +37,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/nerdcommenter'
 "" Language server client
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fannheyward/coc-basedpyright', {'do': 'yarn install --frozen-lockfile'}
 "" Visual debugger for multiple langauges
 Plug 'markkimsal/vdebug'
 "" (c)tags navigation within file

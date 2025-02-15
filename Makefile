@@ -69,7 +69,7 @@ latest-vim-version:
 vim-plugins:
 	vim +PlugInstall +PlugUpdate +qa
 
-coc-extensions: coc-basedpyright coc-rust-analyzer
+coc-extensions: coc-rust-analyzer
 
 coc-basedpyright: $(COC_EXTENSIONS_DIR)/node_modules/coc-basedpyright/package.json
 $(COC_EXTENSIONS_DIR)/node_modules/coc-basedpyright/package.json:
