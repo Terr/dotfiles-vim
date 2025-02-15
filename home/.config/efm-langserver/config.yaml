@@ -5,6 +5,10 @@ root-markers:
 lint-debounce: 1s
 
 tools:
+  python-isort: &python-isort
+    format-command: 'isort --quiet -'
+    format-stdin: true
+
   python-ruff: &python-ruff
     lint-command: "ruff check --stdin-filename ${INPUT} --output-format concise --quiet -"
     lint-stdin: true
@@ -15,4 +19,5 @@ tools:
 
 languages:
   python:
+    - <<: *python-isort
     - <<: *python-ruff
