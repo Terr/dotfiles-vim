@@ -261,6 +261,8 @@ nnoremap <silent> <C-B> :BLines<CR>
 nnoremap <silent> <Leader>t :Tags<CR>
 nnoremap <silent> <F3> :Rg <C-r>=expand("<cword>")<CR><CR>
 vnoremap <silent> <F3> :<C-u>Rg <C-r>*<CR>
+" Toggle showing/hiding in-line type hints (as they can be very long sometimes)
+noremap <silent> <F4> :CocCommand document.toggleInlayHint<CR>
 
 if executable('spacegrep')
     command! -bang -nargs=* Sg call fzf#run(fzf#wrap(
