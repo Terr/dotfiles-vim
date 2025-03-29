@@ -19,8 +19,8 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'LunarWatcher/auto-pairs'
 "" vim-surround
 Plug 'tpope/vim-surround'
-"" netrw improvements
-Plug 'tpope/vim-vinegar'
+"" netrw replacement
+Plug 'justinmk/vim-dirvish'
 "" File tree viewer
 Plug 'lambdalisue/fern.vim', { 'branch': 'main' }
 Plug 'lambdalisue/nerdfont.vim'
@@ -188,12 +188,6 @@ set scrolloff=7
 set sidescrolloff=7
 set sidescroll=1
 
-" netrw settings
-let g:netrw_banner = 0
-let g:netrw_winsize = 20
-let g:netrw_altv = 1
-let g:netrw_sort_options = "i"
-
 " Rebind <Leader> key
 let mapleader = ','
 
@@ -251,6 +245,23 @@ endfunction
 autocmd FileType c,cpp,go,html,java,javascript,lua,php,python,ruby,yaml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
 
 " Plugin related settings
+
+"" vim-dirvish
+augroup dirvish_config
+    autocmd!
+    " Map `t` to open in new tab.
+    autocmd FileType dirvish
+        \  nnoremap <silent><buffer> t :call dirvish#open('tabedit', 0)<CR>
+        \ |xnoremap <silent><buffer> t :call dirvish#open('tabedit', 0)<CR>
+
+    " Prepares a command for creating a new file in the current directory
+    autocmd FileType dirvish
+        \ nnoremap <buffer> gn :e <C-r>=expand("%")<CR>
+
+    " Map `gh` to hide dot-prefixed files.  Press `R` to "toggle" (reload).
+    autocmd FileType dirvish nnoremap <silent><buffer>
+        \ gh :silent keeppatterns g@\v/\.[^\/]+/?$@d _<cr>:setl cole=3<cr>
+augroup END
 
 "" fzf
 let g:fzf_history_dir='~/.local/share/fzf-history'
