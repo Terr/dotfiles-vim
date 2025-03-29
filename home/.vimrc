@@ -107,6 +107,9 @@ set backspace=indent,eol,start
 " See: http://stackoverflow.com/questions/2158516/delay-before-o-opens-a-new-line
 set timeoutlen=300
 
+" Show number of selected characters/lines and commands as they're being typed
+set showcmd
+
 " Statusline
 "" Always show a status line
 set laststatus=2
