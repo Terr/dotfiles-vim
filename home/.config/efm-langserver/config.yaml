@@ -12,6 +12,7 @@ tools:
   python-ruff: &python-ruff
     lint-command: "ruff check --stdin-filename ${INPUT} --output-format concise --quiet -"
     lint-stdin: true
+    lint-severity: 2
     lint-formats:
       - "%f:%l:%c: %m"
     format-command: "ruff format --stdin-filename ${INPUT} --quiet -"
