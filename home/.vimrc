@@ -14,7 +14,7 @@ Plug 'junegunn/fzf.vim'
 "" Tmux navigator
 Plug 'christoomey/vim-tmux-navigator'
 "" Solarized color scheme
-Plug 'lifepillar/vim-solarized8'
+" Plug 'lifepillar/vim-solarized8'
 "" Auto-close brackets/quotes/etc.
 Plug 'LunarWatcher/auto-pairs'
 "" vim-surround
