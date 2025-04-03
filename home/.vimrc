@@ -360,9 +360,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 """" * https://github.com/alacritty/alacritty/issues/4575#issuecomment-770359544
 inoremap <silent><expr> <c-@> coc#refresh()
 
-""" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+""" Use <cr> to confirm completion
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
 """ Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
