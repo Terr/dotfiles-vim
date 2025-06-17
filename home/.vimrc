@@ -213,7 +213,7 @@ nmap <BS> <C-^>
 
 " Pre-fill find/replace with text under cursor
 nnoremap <F2> :%s#<C-r>=expand("<cword>")<CR>##g<Left><Left>
-vnoremap <F2> :<C-u>%s#<C-r>*#
+vnoremap <F2> :<C-u>%s#<C-r>*##g<Left><Left>
 
 " Toggle for "paste"-mode
 set pastetoggle=<F5>
