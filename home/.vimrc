@@ -487,6 +487,8 @@ function! s:init_fern() abort
     nmap <buffer> <silent> N <Plug>(fern-action-new-path=)
     nmap <buffer> <silent> R <Plug>(fern-action-rename:bottom)
     nmap <buffer> <silent> <F5> <Plug>(fern-action-reload)
+    " Toggle visibility of hidden files/directories
+    nmap <buffer> <silent> za <Plug>(fern-action-hidden:toggle)
     " Open in a background tab
     nmap <buffer> <silent> T <Plug>(fern-action-open:tab)gT
     nmap <buffer> <silent> X <Plug>(fern-action-open:system)
@@ -494,9 +496,20 @@ function! s:init_fern() abort
     nmap <buffer> <silent> q :<C-u>quit<CR>
 endfunction
 
+function! s:fern_on_highlight() abort
+    highlight link FernBranchText None
+    highlight link FernBranchSymbol Directory
+    highlight link FernLeafSymbol NonText
+endfunction
+
 augroup fern-custom
     autocmd! *
     autocmd FileType fern call s:init_fern()
+augroup END
+
+augroup fern-highlight
+    autocmd!
+    autocmd User FernHighlight call s:fern_on_highlight()
 augroup END
 
 nnoremap <silent> <F7> :Fern . -reveal=% -drawer -width=40<CR>
