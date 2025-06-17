@@ -114,23 +114,25 @@ set showcmd
 "" Always show a status line
 set laststatus=2
 
+"" The contents of the statusline
+
 set statusline=
-set statusline+=%#DiffAdd#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-set statusline+=%#DiffChange#%{(mode()=='i')?'\ \ INSERT\ ':''}
-set statusline+=%#DiffDelete#%{(mode()=='r')?'\ \ RPLACE\ ':''}
-set statusline+=%#Cursor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%#StatusLineModeNormal#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+set statusline+=%#StatusLineModeInsert#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#StatusLineModeReplace#%{(mode()=='r')?'\ \ RPLACE\ ':''}
+set statusline+=%#StatusLineModeVisual#%{(mode()=='v')?'\ \ VISUAL\ ':''}
 set statusline+=%#StatusLine#           " colour
 set statusline+=\ %n\                   " buffer number
 set statusline+=%{&paste?'\ PASTE\ ':''}
 set statusline+=%{&spell?'\ SPELL\ ':''}
 set statusline+=\ %f                    " relative file path
-set statusline+=\ %y                    " file type
 set statusline+=%r                      " readonly flag
 set statusline+=%m                      " modified [+] flag
-set statusline+=%{tagbar#currenttag('[%s]\ ','')}  " show current ctag
+set statusline+=%{tagbar#currenttag('[%s]\ ','','f')}  " show current ctag
 set statusline+=%=                      " right align
 set statusline+=%#StatusLineNC#         " colour
 set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ %y                    " file type
 set statusline+=\ %3l:%-2c              " line + column
 set statusline+=\ [0x%02B]              " byte value of char. under cursor
 set statusline+=\ %3p%%\                " percentage
@@ -146,6 +148,12 @@ if has('termguicolors')
 endif
 set background=light
 colorscheme solarized8_custom
+
+"" Colors to use for the mode indicator on the status line
+hi StatusLineModeNormal ctermfg=106 ctermbg=254
+hi StatusLineModeInsert ctermfg=230 ctermbg=32
+hi StatusLineModeReplace ctermfg=230 ctermbg=166
+hi StatusLineModeVisual ctermfg=230 ctermbg=136
 
 " Backup settings
 set nobackup
