@@ -82,6 +82,20 @@ endif
 " Increase redrawing speed
 set ttyfast
 
+" Change cursor style to hint at insert, replace or normal mode
+" Coped from wincent/terminus plugin because, for some reason, this part
+" doesn't work inside tmux
+let &t_EI="\<Esc>[2 q"  " block
+let &t_SI="\<Esc>[5 q"  " bar
+let &t_SR="\<Esc>[4 q"  " underline
+
+" Have vim start off with the cursor shape set to a block (normal mode), as
+" the terminal might have left it as a bar character from being in insert mode
+autocmd VimEnter * :normal :startinsert :stopinsert
+" Set cursor shape back to bar (insert mode) when exiting vim
+" NOTE Doesn't seem to be necessary?
+"autocmd VimLeave * silent exec "! echo -ne '\e[5 q'"
+
 " Syntax highlighting
 syntax enable
 "" Don't syntax highlight lines longer than this many columns wide
