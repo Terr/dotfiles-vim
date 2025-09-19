@@ -48,16 +48,10 @@ Plug 'godlygeek/tabular'
 Plug 'Terr/vim-outlaw', { 'branch': 'indent-based-text-width' }
 "" Better Python indentation
 Plug 'Vimjas/vim-python-pep8-indent', { 'for': 'python' }
-"" Go development plugin
-Plug 'fatih/vim-go', { 'for': 'go' }
 "" Rust file detection, syntax highlighting, etc.
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-"" PHP syntax highlighting
-Plug 'StanAngeloff/php.vim', { 'for': 'php' }
 "" TypeScript syntax highlighting
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-"" Improved C++ syntax highlighting
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 "" Vimscript testing framework
 Plug 'junegunn/vader.vim', { 'for': 'vim' }
 call plug#end()
